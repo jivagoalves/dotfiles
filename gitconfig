@@ -1,0 +1,26 @@
+[user]
+	name = Jivago Alves
+	email = jivagoalves@gmail.com
+[core]
+	editor = vim
+	excludesfile = /home/jivago/.gitignore
+[merge]
+	tool = vimdiff
+[color]
+	ui = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[alias]
+	co = checkout
+	s = status -s
+	l = log --branches --decorate --oneline
+	b = branch
+	d = diff
+[web]
+	browser = google-chrome
+[github]
+	user = jivagoalves
+[push]
+	default = simple
