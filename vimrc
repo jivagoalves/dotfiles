@@ -211,6 +211,7 @@ noremap <Leader>gca :Git commit --amend<CR>
 noremap <Leader>gcp :Git checkout -p %<CR>
 noremap <Leader>gp :!git push origin `git rev-parse --abbrev-ref HEAD`<CR>
 noremap <Leader>gpf :!git push -f origin `git rev-parse --abbrev-ref HEAD`<CR>
+noremap <Leader>gc :Git commit<CR>
 
 function! GetCurrentBranch()
   return system("git rev-parse --abbrev-ref HEAD")
