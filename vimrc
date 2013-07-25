@@ -1,11 +1,13 @@
 " == General == {{{
 " ==================================================================== 
 
+set number
 set relativenumber
 set autoread
 set list listchars=tab:\ \ ,trail:·
 set splitbelow
 set splitright
+set smartcase
 
 " Highlight chars past 80 columns
 augroup highlight
@@ -112,6 +114,12 @@ nnoremap <Leader>ev :split $MYVIMRC<CR>
 " Reload vimrc file
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" Yank after the cursor instead of the entire line
+nnoremap Y y$
+
+" Paste in insert mode
+inoremap <C-v> <ESC>pa
+
 " Surround word in double quotes
 nnoremap <Leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 
@@ -122,7 +130,7 @@ nnoremap <Leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
 vnoremap <Leader>" <ESC>a"<ESC>`<i"<ESC>`>E
 
 " Move lines downward with one keystroke
-nnoremap - ddp
+noremap - ddp
 
 " Move lines upward with one keystroke
 " noremap _ ddkP
@@ -218,7 +226,7 @@ cnoremap <expr> %b getcmdtype() == ':' ? GetCurrentBranch() : '%%'
 " == Movement Mappings == {{{
 " ====================================================================
 
-" -- Parentheses & Braces -- {{{
+" -- Brackets -- {{{
 " --------------------------------------------------------------------
 
 onoremap p i(
@@ -242,6 +250,16 @@ onoremap an{ :<C-u>normal! f{va{<CR>
 onoremap al{ :<C-u>normal! F}va{<CR>
 onoremap an} :<C-u>normal! f{va{<CR>
 onoremap al} :<C-u>normal! F}va{<CR>
+
+" following are like 'inside/around next/last [ or ]'
+onoremap in[ :<C-u>normal! f[vi[<CR>
+onoremap il[ :<C-u>normal! F]vi[<CR>
+onoremap in] :<C-u>normal! f[vi[<CR>
+onoremap il] :<C-u>normal! F]vi[<CR>
+onoremap an[ :<C-u>normal! f[va[<CR>
+onoremap al[ :<C-u>normal! F]va[<CR>
+onoremap an] :<C-u>normal! f[va[<CR>
+onoremap al] :<C-u>normal! F]va[<CR>
 
 " }}}
 
@@ -307,6 +325,11 @@ nnoremap <Leader>b <Plug>SetTmuxVars()
 " Send a selection in visual mode to tmux
 vnoremap <Leader>v <Plug>SendSelectionToTmux
 
+" Run specs for Puppet project
+if filereadable("manifests/init.pp")
+  nnoremap <Leader>t :call Send_to_Tmux("script/specs\n")<CR>
+end
+
 " }}}
 
 " == Gist Customization == {{{
@@ -344,6 +367,13 @@ augroup rails_custom_paths
   autocmd User Rails Rnavcommand decorator  app/decorators  -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand config     config          -glob=*.*   -suffix=      -default=routes.rb
 augroup END
+
+" }}}
+
+" == YouCompleteMe == {{{
+" ====================================================================
+
+let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
 
 " }}}
 
