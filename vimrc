@@ -396,10 +396,10 @@ inoremap <C-c> <nop>
 " Playing around with remappings on a per-filetype basis
 augroup comments
   autocmd!
-  autocmd FileType ruby nnoremap <buffer> <Localleader>c I#<ESC>
-  autocmd FileType javascript nnoremap <buffer> <Localleader>c I//<ESC>
-  autocmd FileType haml nnoremap <buffer> <Localleader>c I= # <ESC>
-  autocmd BufNewFile,BufRead .vimrc nnoremap <buffer> <Localleader>c I" <ESC>
+  autocmd FileType ruby nnoremap <buffer> <Localleader>/ I#<ESC>
+  autocmd FileType javascript nnoremap <buffer> <Localleader>/ I//<ESC>
+  autocmd FileType haml nnoremap <buffer> <Localleader>/ I= # <ESC>
+  autocmd BufNewFile,BufRead .vimrc nnoremap <buffer> <Localleader>/ I" <ESC>
 augroup END
 
 augroup markdown
