@@ -201,17 +201,22 @@ noremap <Leader>eb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
 " -- Git Customization -- {{{
 " --------------------------------------------------------------------
 
-noremap <Leader>gl :Git log<CR>
-noremap <Leader>gln :Git log --name-only<CR>
-noremap <Leader>glp :Git log -p<CR>
+noremap <Leader>gl :!clear && git log<CR>
+noremap <Leader>gln :!clear && git log --name-only<CR>
+noremap <Leader>glp :!clear && git log -p<CR>
 noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>ga :Git add %<CR>
-noremap <Leader>gap :Git add -p<CR>
-noremap <Leader>gca :Git commit --amend<CR>
-noremap <Leader>gcp :Git checkout -p %<CR>
+noremap <Leader>ga :!clear && git add %<CR>
+noremap <Leader>gap :!clear && git add -p<CR>
+noremap <Leader>gca :!clear && git commit --amend<CR>
+noremap <Leader>gcp :!clear && git checkout -p %<CR>
 noremap <Leader>gp :!git push origin `git rev-parse --abbrev-ref HEAD`<CR>
 noremap <Leader>gpf :!git push -f origin `git rev-parse --abbrev-ref HEAD`<CR>
-noremap <Leader>gc :Git commit<CR>
+noremap <Leader>gc :!clear && git commit<CR>
+noremap <Leader>gd :!clear && git diff<CR>
+noremap <Leader>gdc :!clear && git diff --cached<CR>
+noremap <Leader>gfp :!clear && git fetch -p origin<CR>
+noremap <Leader>gr :!clear && git rebase origin/master<CR>
+noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 
 function! GetCurrentBranch()
   return system("git rev-parse --abbrev-ref HEAD")
