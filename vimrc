@@ -238,34 +238,34 @@ cnoremap <expr> %b getcmdtype() == ':' ? GetCurrentBranch() : '%%'
 onoremap p i(
 
 " following are like 'inside/around next/last ( or )'
-onoremap in( :<C-u>normal! f(vi(<CR>
-onoremap il( :<C-u>normal! F)vi(<CR>
-onoremap in) :<C-u>normal! f(vi(<CR>
-onoremap il) :<C-u>normal! F)vi(<CR>
-onoremap an( :<C-u>normal! f(va(<CR>
-onoremap al( :<C-u>normal! F)va(<CR>
-onoremap an) :<C-u>normal! f(va(<CR>
-onoremap al) :<C-u>normal! F)va(<CR>
+onoremap in( :<C-u>execute "normal! /(\r:nohlsearch\rvi)"<CR>
+onoremap in) :<C-u>execute "normal! /)\r:nohlsearch\rvi("<CR>
+onoremap il( :<C-u>execute "normal! ?(\r:nohlsearch\rvi("<CR>
+onoremap il) :<C-u>execute "normal! ?)\r:nohlsearch\rvi)"<CR>
+onoremap an( :<C-u>execute "normal! /(\r:nohlsearch\rva)"<CR>
+onoremap an) :<C-u>execute "normal! /)\r:nohlsearch\rva("<CR>
+onoremap al( :<C-u>execute "normal! ?(\r:nohlsearch\rva("<CR>
+onoremap al) :<C-u>execute "normal! ?)\r:nohlsearch\rva)"<CR>
 
 " following are like 'inside/around next/last { or }'
-onoremap in{ :<C-u>normal! f{vi{<CR>
-onoremap il{ :<C-u>normal! F}vi{<CR>
-onoremap in} :<C-u>normal! f{vi{<CR>
-onoremap il} :<C-u>normal! F}vi{<CR>
-onoremap an{ :<C-u>normal! f{va{<CR>
-onoremap al{ :<C-u>normal! F}va{<CR>
-onoremap an} :<C-u>normal! f{va{<CR>
-onoremap al} :<C-u>normal! F}va{<CR>
+onoremap in{ :<C-u>execute "normal! /{\r:nohlsearch\rvi}"<CR>
+onoremap in} :<C-u>execute "normal! /}\r:nohlsearch\rvi{"<CR>
+onoremap il{ :<C-u>execute "normal! ?{\r:nohlsearch\rvi}"<CR>
+onoremap il} :<C-u>execute "normal! ?}\r:nohlsearch\rvi{"<CR>
+onoremap an{ :<C-u>execute "normal! /{\r:nohlsearch\rva}"<CR>
+onoremap an} :<C-u>execute "normal! /}\r:nohlsearch\rva{"<CR>
+onoremap al{ :<C-u>execute "normal! ?{\r:nohlsearch\rva}"<CR>
+onoremap al} :<C-u>execute "normal! ?}\r:nohlsearch\rva{"<CR>
 
 " following are like 'inside/around next/last [ or ]'
-onoremap in[ :<C-u>normal! f[vi[<CR>
-onoremap il[ :<C-u>normal! F]vi[<CR>
-onoremap in] :<C-u>normal! f[vi[<CR>
-onoremap il] :<C-u>normal! F]vi[<CR>
-onoremap an[ :<C-u>normal! f[va[<CR>
-onoremap al[ :<C-u>normal! F]va[<CR>
-onoremap an] :<C-u>normal! f[va[<CR>
-onoremap al] :<C-u>normal! F]va[<CR>
+onoremap in[ :<C-u>execute "normal! /[\r:nohlsearch\rvi]"<CR>
+onoremap in] :<C-u>execute "normal! /]\r:nohlsearch\rvi["<CR>
+onoremap il[ :<C-u>execute "normal! ?[\r:nohlsearch\rvi]"<CR>
+onoremap il] :<C-u>execute "normal! ?]\r:nohlsearch\rvi["<CR>
+onoremap an[ :<C-u>execute "normal! /[\r:nohlsearch\rva]"<CR>
+onoremap an] :<C-u>execute "normal! /]\r:nohlsearch\rva["<CR>
+onoremap al[ :<C-u>execute "normal! ?[\r:nohlsearch\rva]"<CR>
+onoremap al] :<C-u>execute "normal! ?]\r:nohlsearch\rva["<CR>
 
 " }}}
 
