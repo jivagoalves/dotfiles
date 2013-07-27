@@ -273,12 +273,13 @@ onoremap al] :<C-u>execute "normal! ?]\r:nohlsearch\rva["<CR>
 " --------------------------------------------------------------------
 
 " following are like 'inside/around next/last single/double quotes
-onoremap il" :<C-u>execute "normal! ?\"\r:nohlsearch\rvi\""<CR>
+onoremap in" :<C-u>execute "normal! /\"\r:nohlsearch\rvi\""<CR>
 onoremap in' :<C-u>execute "normal! /'\r:nohlsearch\rvi'"<CR>
+onoremap il" :<C-u>execute "normal! ?\"\r:nohlsearch\rvi\""<CR>
 onoremap il' :<C-u>execute "normal! ?'\r:nohlsearch\rvi'"<CR>
 onoremap an" :<C-u>execute "normal! /\"\r:nohlsearch\rva\""<CR>
-onoremap al" :<C-u>execute "normal! ?\"\r:nohlsearch\rva\""<CR>
 onoremap an' :<C-u>execute "normal! /'\r:nohlsearch\rva'"<CR>
+onoremap al" :<C-u>execute "normal! ?\"\r:nohlsearch\rva\""<CR>
 onoremap al' :<C-u>execute "normal! ?'\r:nohlsearch\rva'"<CR>
 
 " }}}
