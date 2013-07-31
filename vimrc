@@ -376,6 +376,16 @@ augroup END
 
 " }}}
 
+" == Rails.vim support for factories == {{{
+" ====================================================================
+
+augroup rails_factories
+  autocmd!
+  autocmd User Rails Rnavcommand factory spec/factories -glob=**/* -suffix=.rb
+augroup END
+
+" }}}
+
 " == YouCompleteMe == {{{
 " ====================================================================
 
