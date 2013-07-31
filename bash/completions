@@ -1,0 +1,2 @@
+[[ -s $HOME/.bash/completion_scripts/.git-prompt.sh ]] && . $HOME/.bash/completion_scripts/.git-prompt.sh
+[[ -s $HOME/.bash/completion_scripts/.tmux-completion.sh ]] && . $HOME/.bash/completion_scripts/.tmux-completion.sh
