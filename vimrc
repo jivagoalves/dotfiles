@@ -173,11 +173,10 @@ noremap <C-l> <C-w>l
 noremap <C-w>z :call ZoomInOutCurrentWindow()<CR>
 
 let g:window_status = "out"
-let g:window_height = "resize 18" " FIXME This magic number probably depends on screen size
 function! ZoomInOutCurrentWindow()
   if g:window_status ==? "in"
     let g:window_status = "out"
-    execute g:window_height
+    execute "normal! \<C-w>="
   else
     let g:window_status = "in"
     resize
