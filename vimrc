@@ -326,10 +326,10 @@ else
 endif
 
 " Set session, window and pane
-nnoremap <Leader>b <Plug>SetTmuxVars()
+nmap <Leader>b <Plug>SetTmuxVars
 
 " Send a selection in visual mode to tmux
-vnoremap <Leader>v <Plug>SendSelectionToTmux
+vmap <Leader>v <Plug>SendSelectionToTmux
 
 " Run specs for Puppet project
 if filereadable("manifests/init.pp")
