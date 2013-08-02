@@ -10,6 +10,9 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
+# Use Vim as default editor
+export EDITOR=vim
+
 source ~/.bash/completions
 
 # Add colors,
