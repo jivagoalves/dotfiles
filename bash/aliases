@@ -1,0 +1,2 @@
+# Tmux's aliases
+alias tls='tmux ls'

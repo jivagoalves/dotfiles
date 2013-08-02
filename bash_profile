@@ -13,6 +13,7 @@ export PATH
 # Use Vim as default editor
 export EDITOR=vim
 
+source ~/.bash/aliases
 source ~/.bash/completions
 
 # Add colors,
