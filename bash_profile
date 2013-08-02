@@ -10,6 +10,9 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
+# Add ~/.links to easily jump to favourites directories
+CDPATH=$HOME/.links:$CDPATH
+
 # Use Vim as default editor
 export EDITOR=vim
 
