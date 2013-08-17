@@ -1,2 +1,15 @@
+# Bash's aliases
+alias c='clear'
+
 # Tmux's aliases
+alias t='tmux'
 alias tls='tmux ls'
+
+# Bundle's aliases
+alias be='bundle exec'
+alias bs='bundle show'
+alias bu='bundle update'
+alias bake='bundle exec rake'
+
+# Zeus's aliases
+alias zake='zeus rake'
