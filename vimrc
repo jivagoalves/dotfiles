@@ -9,6 +9,9 @@ set splitbelow
 set splitright
 set smartcase
 
+" Use behavior of shell autocomplete functions for completing filenames
+set wildmode=longest,list
+
 " Highlight chars past 80 columns
 augroup highlight
   autocmd!
