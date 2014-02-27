@@ -18,6 +18,7 @@
 	l = log --branches --decorate --oneline
 	b = branch
 	d = diff
+	adduntracked=!git add $(git ls-files -o --exclude-standard)
 [web]
 	browser = google-chrome
 [github]
