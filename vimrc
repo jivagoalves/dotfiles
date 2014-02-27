@@ -166,8 +166,20 @@ nnoremap <Leader>. 0f.<Space>i<CR><Esc>k$j
 nnoremap <Leader>s <Esc>:w<CR>
 inoremap <Leader>s <C-o>:w<CR>
 
+" Move current line to top of screen
+nnoremap zk zt
+
+" Move current line to botton of screen
+nnoremap zj zb
+
+" Change between recent buffers
+nnoremap <C-w><C-w> <C-^>
+
 " Clears highlight
 nnoremap <Leader>c :noh<CR>
+
+" Clears highlight and console
+nnoremap <Leader>cl :noh<CR>:call Send_to_Tmux("clear\n")<CR>
 
 " Makes Q quit.
 nnoremap Q :q<CR>
@@ -180,6 +192,9 @@ nnoremap Q :q<CR>
 " noremap <C-j> <C-w>j
 " noremap <C-k> <C-w>k
 " noremap <C-l> <C-w>l
+
+" Make all windows (almost) equally high and wide
+noremap <Leader>ew <C-w>=
 
 " Zoom in/out current window
 noremap <C-w>z :call ZoomInOutCurrentWindow()<CR>
@@ -474,18 +489,16 @@ augroup markdown
   autocmd FileType markdown onoremap <buffer> ah :<c-u>execute "normal! ?^[=-][=-]\\+$\r:nohlsearch\rg_vk0"<cr>
 augroup END
 
-" }}}
+" Change RSpec's `should` to `expect(object).to`
+nnoremap <Leader>ste 0/should<CR>ceto<ESC>^c/\.to<CR>expect()<ESC>P^
+" Change RSpec's `should_not` to `expect(object).to_not`
+nnoremap <Leader>snte 0/should<CR>ceto_not<ESC>^c/\.to_not<CR>expect()<ESC>P^
+" Change RSpec's `should_receive` to `expect(object).to receive`
+nnoremap <Leader>str 0/should<CR>cawreceive<ESC>bito <ESC>^c/\.to<CR>()<ESC>PIexpect<ESC>^
+" Change RSpec's `should_not_receive` to `expect(object).to_not receive`
+nnoremap <Leader>sntr 0/should<CR>cawreceive<ESC>bito_not <ESC>^c/\.to_not<CR>()<ESC>PIexpect<ESC>^
 
-" Choose faster rake when zeus or bundle is present
-if filereadable(".zeus.sock")
-  let g:rake = "zeus rake"
-elseif filereadable("zeus.json")
-  let g:rake = "zeus rake"
-elseif filereadable("Gemfile")
-  let g:rake = "bundle exec rake"
-else
-  let g:rake = "rake"
-endif
+" }}}
 
 " Load .vim.custom file per project
 if filereadable(".vim.custom")
