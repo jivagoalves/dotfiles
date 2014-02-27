@@ -222,6 +222,7 @@ noremap <Leader>gdc :!clear && git diff --cached<CR>
 noremap <Leader>gfp :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
+noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . join(split(tolower(input("New branch name:"))), "_") . " origin/master && clear\n")<CR>
 
 function! GetCurrentBranch()
   return system("git rev-parse --abbrev-ref HEAD")
