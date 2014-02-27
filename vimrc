@@ -332,6 +332,17 @@ endfunction
 nnoremap <Leader>z :call SendTestToTmuxWithZeus()<CR>
 nnoremap <Leader>Z :call SendFocusedTestToTmuxWithZeus()<CR>
 
+" Set session, window and pane
+nmap <Leader>b <Plug>SetTmuxVars
+
+" Send a selection in visual mode to tmux
+vmap <Leader>v <Plug>SendSelectionToTmux
+
+" }}}
+
+" == Zeus == {{{
+" ====================================================================
+
 " Run all specs with Zeus or Bundle or only RSpec
 if filereadable("zeus.json")
   nnoremap <Leader>a :call Send_to_Tmux("zeus ".g:turbux_command_rspec." spec\n")<CR>
@@ -341,11 +352,33 @@ else
   nnoremap <Leader>a :call Send_to_Tmux(g:turbux_command_rspec." spec\n")<CR>
 endif
 
-" Set session, window and pane
-nmap <Leader>b <Plug>SetTmuxVars
+" Restart Zeus by touching config/application.rb
+nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"<CR>:redraw!<CR>
 
-" Send a selection in visual mode to tmux
-vmap <Leader>v <Plug>SendSelectionToTmux
+" Run migrations
+if filereadable("zeus.json")
+  nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
+elseif filereadable("Gemfile")
+  nnoremap <Leader>m :call Send_to_Tmux("bundle exec rake db:migrate db:test:prepare\n")<CR>
+else
+  nnoremap <Leader>m :call Send_to_Tmux("rake db:migrate db:test:prepare\n")<CR>
+endif
+
+" Choose faster rake when zeus or bundle is present
+if filereadable(".zeus.sock")
+  let g:rake = "zeus rake"
+elseif filereadable("zeus.json")
+  let g:rake = "zeus rake"
+elseif filereadable("Gemfile")
+  let g:rake = "bundle exec rake"
+else
+  let g:rake = "rake"
+endif
+
+" }}}
+
+" == Puppet == {{{
+" ====================================================================
 
 " Run specs for Puppet project
 if filereadable("manifests/init.pp")
@@ -436,6 +469,17 @@ augroup markdown
 augroup END
 
 " }}}
+
+" Choose faster rake when zeus or bundle is present
+if filereadable(".zeus.sock")
+  let g:rake = "zeus rake"
+elseif filereadable("zeus.json")
+  let g:rake = "zeus rake"
+elseif filereadable("Gemfile")
+  let g:rake = "bundle exec rake"
+else
+  let g:rake = "rake"
+endif
 
 " Load .vim.custom file per project
 if filereadable(".vim.custom")
