@@ -166,11 +166,14 @@ nnoremap <Leader>c :noh<CR>
 " Makes Q quit.
 nnoremap Q :q<CR>
 
+" NOTE: Don't use this since it breaks
+" seamless navigation between vim
+" and tmux when we reload vimrc.
 " Windows shortcuts to change focus
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+" noremap <C-h> <C-w>h
+" noremap <C-j> <C-w>j
+" noremap <C-k> <C-w>k
+" noremap <C-l> <C-w>l
 
 " Zoom in/out current window
 noremap <C-w>z :call ZoomInOutCurrentWindow()<CR>
