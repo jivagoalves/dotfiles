@@ -290,6 +290,15 @@ onoremap al' :<C-u>execute "normal! ?'\r:nohlsearch\rva'"<CR>
 
 " }}}
 
+" -- underscores -- {{{
+" --------------------------------------------------------------------
+
+" following are like inside next/last underscore
+onoremap in_ :<C-u>execute "normal! /_\r:nohlsearch\rlvt_"<CR>
+onoremap il_ :<C-u>execute "normal! ?_\r:nohlsearch\rhvT_"<CR>
+
+" }}}
+
 " email
 onoremap in@ :<C-u>execute "normal! /[A-Za-z0-9%-.]\\+@\r:nohlsearch\rvt@"<CR>
 
