@@ -10,6 +10,9 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
+# Tomcat
+export CATALINA_HOME=$HOME/opt/apache-tomcat
+
 # Add ~/.links to easily jump to favourites directories
 CDPATH=$HOME/.links:$CDPATH
 
@@ -35,3 +38,22 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 # Load NVM
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 [[ -s $HOME/.nvm/bash_completion ]] && . $HOME/.nvm/bash_completion
+
+# Make explainshell.com available at command line
+function explain {
+  # base url with first command already injected
+  # $ explain tar
+  #   => http://explainshell.com/explain/tar?args=
+  url="http://explainshell.com/explain/$1?args="
+
+  # removes $1 (tar) from arguments ($@)
+  shift;
+
+  # iterates over remaining args and adds builds the rest of the url
+  for i in "$@"; do
+    url=$url"$i""+"
+  done
+
+  # opens url in browser
+    xdg-open $url
+}

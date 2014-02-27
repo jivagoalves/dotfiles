@@ -217,9 +217,14 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 noremap <Leader>rb 0f{"tdi}ca}do<CR>end<ESC>O<ESC>"tp=<Space>:w<CR>
 noremap <Leader>r{ "tdir?do<CR>cw{<ESC>/end<CR>cw}<ESC>"tPkJJF{w:noh<CR>
 
-" Inspect value of current line taking into account begining of the file
-" until current line. For example, line '1 + 1' will be '1 + 1 # => 2'.
-noremap <Leader>e A#<ESC>0f#DVgg"wy<C-o>0Cp()<ESC>PVgg:!ruby<CR>"wP<C-o>kA<Space>#<Space>=><Space><ESC>J
+augroup evaluation
+  autocmd!
+  " Inspect value of current line taking into account begining of the file
+  " until current line. For example, line '1 + 1' will be '1 + 1 # => 2'.
+  " noremap <Leader>e A#<ESC>0f#DVgg"wy<C-o>0Cp()<ESC>PVgg:!ruby<CR>"wP<C-o>kA<Space>#<Space>=><Space><ESC>J
+  autocmd FileType ruby noremap <buffer> <Localleader>e A#<ESC>0f#DVgg"wy<C-o>0Cp()<ESC>PVgg:!ruby<CR>"wP<C-o>kA<Space>#<Space>=><Space><ESC>J
+  autocmd FileType clojure noremap <buffer> <Localleader>e :Eval<CR>
+augroup END
 
 " Refactorings
 noremap <Leader>eb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
@@ -466,7 +471,9 @@ let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
 " == Temporary for muscle memory == {{{
 " ====================================================================
 
-inoremap <C-c> <nop>
+nnoremap zt <nop>
+nnoremap zb <nop>
+nnoremap <C-^> <nop>
 
 " }}}
 
@@ -476,6 +483,7 @@ inoremap <C-c> <nop>
 " Playing around with remappings on a per-filetype basis
 augroup comments
   autocmd!
+  autocmd FileType clojure nnoremap <buffer> <Localleader>/ I;<ESC>
   autocmd FileType ruby,coffee nnoremap <buffer> <Localleader>/ I#<ESC>
   autocmd FileType javascript nnoremap <buffer> <Localleader>/ I//<ESC>
   autocmd FileType haml nnoremap <buffer> <Localleader>/ I= # <ESC>
