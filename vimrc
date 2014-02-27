@@ -120,6 +120,12 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 " Yank after the cursor instead of the entire line
 nnoremap Y y$
 
+" Copy and paste between Vim instances
+vnoremap <silent> <Leader>y y:new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
+nnoremap <silent> <Leader>y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
+noremap <silent> <Leader>p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
+noremap <silent> <Leader>P :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>P
+
 " Paste in insert mode
 inoremap <C-v> <ESC>pa
 
