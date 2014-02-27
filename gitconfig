@@ -19,7 +19,7 @@
 	b = branch
 	d = diff
 	adduntracked = !git add $(git ls-files -o --exclude-standard)
-	cleanbranches = !git branch --merged | grep -v "*" | xargs -n 1 git branch -d
+	cleanbranches = !git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d
 [web]
 	browser = google-chrome
 [github]
