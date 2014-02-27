@@ -18,7 +18,8 @@
 	l = log --branches --decorate --oneline
 	b = branch
 	d = diff
-	adduntracked=!git add $(git ls-files -o --exclude-standard)
+	adduntracked = !git add $(git ls-files -o --exclude-standard)
+	cleanbranch = !git branch --merged | grep -v "*" | xargs -n 1 git branch -d
 [web]
 	browser = google-chrome
 [github]
