@@ -445,6 +445,8 @@ augroup rails_custom_paths
   autocmd User Rails Rnavcommand job        app/jobs        -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand mailer     app/mailers     -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand decorator  app/decorators  -glob=**/*  -suffix=.rb
+  autocmd User Rails Rnavcommand validator  app/validators  -glob=**/*  -suffix=.rb
+  autocmd User Rails Rnavcommand admin      app/admin       -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand config     config          -glob=*.*   -suffix=      -default=routes.rb
 augroup END
 
