@@ -16,6 +16,8 @@ set list listchars=tab:\ \ ,trail:·
 set splitbelow
 set splitright
 set smartcase
+set background=dark
+colorscheme jellybeans
 
 " Use behavior of shell autocomplete functions for completing filenames
 set wildmode=longest,list
