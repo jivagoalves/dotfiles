@@ -1,6 +1,14 @@
 " == General == {{{
 " ==================================================================== 
 
+" == Pathogen == {{{
+" ====================================================================
+
+call pathogen#infect()
+call pathogen#helptags()
+
+" }}}
+
 set number
 set relativenumber
 set autoread
@@ -8,6 +16,8 @@ set list listchars=tab:\ \ ,trail:·
 set splitbelow
 set splitright
 set smartcase
+set background=dark
+colorscheme jellybeans
 
 " Use behavior of shell autocomplete functions for completing filenames
 set wildmode=longest,list
@@ -17,12 +27,6 @@ augroup highlight
   autocmd!
   " autocmd BufEnter *.rb,*.haml,*.markdown highlight OverLength ctermbg=lightyellow guibg=#592929
   " autocmd BufEnter *.rb,*.haml,*.markdown match OverLength /\%80v.*/
-augroup END
-
-" Vim's folding
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 " }}}
@@ -39,14 +43,6 @@ set incsearch
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 filetype plugin indent on
-
-" }}}
-
-" == Pathogen == {{{
-" ====================================================================
-
-call pathogen#infect()
-call pathogen#helptags()
 
 " }}}
 
@@ -94,6 +90,7 @@ augroup whitespaces
   autocmd BufWritePre *.rb,*.rake,*.js,*.coffee :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.haml,*.sass,*.scss,*.yml :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.clj :call Preserve("%s/\\s\\+$//e")
+  autocmd BufWritePre *.hs :call Preserve("%s/\\s\\+$//e")
 augroup END
 
 " Avoid EOL at the end of the file:
@@ -235,9 +232,10 @@ noremap <Leader>eb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
 noremap <Leader>gl :!clear && git log<CR>
 noremap <Leader>gln :!clear && git log --name-only<CR>
 noremap <Leader>glp :!clear && git log -p<CR>
-noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gs :call Send_to_Tmux("clear\ngit status -s\n")<CR>
 noremap <Leader>ga :!clear && git add %<CR>
 noremap <Leader>gap :!clear && git add -p<CR>
+noremap <Leader>gac :!clear && git add -p %<CR>
 noremap <Leader>gca :!clear && git commit --amend<CR>
 noremap <Leader>gcp :!clear && git checkout -p %<CR>
 noremap <Leader>gp :!git push origin `git rev-parse --abbrev-ref HEAD`<CR>
@@ -248,7 +246,11 @@ noremap <Leader>gdc :!clear && git diff --cached<CR>
 noremap <Leader>gfp :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
-noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . join(split(tolower(input("New branch name:"))), "_") . " origin/master && clear\n")<CR>
+noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master && clear\n")<CR>
+
+function! SanitizeInput(name)
+  return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"`:#<>-]", "", "g")
+endfunction
 
 function! GetCurrentBranch()
   return system("git rev-parse --abbrev-ref HEAD")
@@ -256,6 +258,9 @@ endfunction
 
 " Expand %b to the current branch
 cnoremap <expr> %b getcmdtype() == ':' ? GetCurrentBranch() : '%%'
+
+noremap ]c :call GitGutterNextHunk()<CR>
+noremap [c :call GitGutterPrevHunk()<CR>
 
 " }}}
 
@@ -358,12 +363,6 @@ endfunction
 nnoremap <Leader>z :call SendTestToTmuxWithZeus()<CR>
 nnoremap <Leader>Z :call SendFocusedTestToTmuxWithZeus()<CR>
 
-" Set session, window and pane
-nmap <Leader>b <Plug>SetTmuxVars
-
-" Send a selection in visual mode to tmux
-vmap <Leader>v <Plug>SendSelectionToTmux
-
 " }}}
 
 " == Zeus == {{{
@@ -446,6 +445,8 @@ augroup rails_custom_paths
   autocmd User Rails Rnavcommand job        app/jobs        -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand mailer     app/mailers     -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand decorator  app/decorators  -glob=**/*  -suffix=.rb
+  autocmd User Rails Rnavcommand validator  app/validators  -glob=**/*  -suffix=.rb
+  autocmd User Rails Rnavcommand admin      app/admin       -glob=**/*  -suffix=.rb
   autocmd User Rails Rnavcommand config     config          -glob=*.*   -suffix=      -default=routes.rb
 augroup END
 
