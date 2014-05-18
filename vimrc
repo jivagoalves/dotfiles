@@ -1,6 +1,14 @@
 " == General == {{{
 " ==================================================================== 
 
+" == Pathogen == {{{
+" ====================================================================
+
+call pathogen#infect()
+call pathogen#helptags()
+
+" }}}
+
 set number
 set relativenumber
 set autoread
@@ -39,14 +47,6 @@ set incsearch
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 filetype plugin indent on
-
-" }}}
-
-" == Pathogen == {{{
-" ====================================================================
-
-call pathogen#infect()
-call pathogen#helptags()
 
 " }}}
 
