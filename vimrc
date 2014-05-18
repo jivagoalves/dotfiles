@@ -90,6 +90,7 @@ augroup whitespaces
   autocmd BufWritePre *.rb,*.rake,*.js,*.coffee :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.haml,*.sass,*.scss,*.yml :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.clj :call Preserve("%s/\\s\\+$//e")
+  autocmd BufWritePre *.hs :call Preserve("%s/\\s\\+$//e")
 augroup END
 
 " Avoid EOL at the end of the file:
