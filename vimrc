@@ -29,12 +29,6 @@ augroup highlight
   " autocmd BufEnter *.rb,*.haml,*.markdown match OverLength /\%80v.*/
 augroup END
 
-" Vim's folding
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
 " }}}
 
 " == Search Settings == {{{
