@@ -10,6 +10,9 @@ fi
 PATH=$HOME/.cabal/bin:$PATH
 export PATH
 
+# Java
+export JAVA_HOME="/usr/java/latest"
+
 # Tomcat
 export CATALINA_HOME=$HOME/opt/apache-tomcat
 
