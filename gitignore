@@ -6,3 +6,5 @@ tags
 zeus.json
 custom_plan.rb
 Guardfile
+.lein-repl-history
+.rake_tasks~
