@@ -232,9 +232,10 @@ noremap <Leader>eb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
 noremap <Leader>gl :!clear && git log<CR>
 noremap <Leader>gln :!clear && git log --name-only<CR>
 noremap <Leader>glp :!clear && git log -p<CR>
-noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gs :call Send_to_Tmux("clear\ngit status -s\n")<CR>
 noremap <Leader>ga :!clear && git add %<CR>
 noremap <Leader>gap :!clear && git add -p<CR>
+noremap <Leader>gac :!clear && git add -p %<CR>
 noremap <Leader>gca :!clear && git commit --amend<CR>
 noremap <Leader>gcp :!clear && git checkout -p %<CR>
 noremap <Leader>gp :!git push origin `git rev-parse --abbrev-ref HEAD`<CR>
@@ -245,7 +246,11 @@ noremap <Leader>gdc :!clear && git diff --cached<CR>
 noremap <Leader>gfp :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
-noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . join(split(tolower(input("New branch name:"))), "_") . " origin/master && clear\n")<CR>
+noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master && clear\n")<CR>
+
+function! SanitizeInput(name)
+  return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"`:#<>-]", "", "g")
+endfunction
 
 function! GetCurrentBranch()
   return system("git rev-parse --abbrev-ref HEAD")
@@ -253,6 +258,9 @@ endfunction
 
 " Expand %b to the current branch
 cnoremap <expr> %b getcmdtype() == ':' ? GetCurrentBranch() : '%%'
+
+noremap ]c :call GitGutterNextHunk()<CR>
+noremap [c :call GitGutterPrevHunk()<CR>
 
 " }}}
 
