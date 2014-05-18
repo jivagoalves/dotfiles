@@ -363,12 +363,6 @@ endfunction
 nnoremap <Leader>z :call SendTestToTmuxWithZeus()<CR>
 nnoremap <Leader>Z :call SendFocusedTestToTmuxWithZeus()<CR>
 
-" Set session, window and pane
-nmap <Leader>b <Plug>SetTmuxVars
-
-" Send a selection in visual mode to tmux
-vmap <Leader>v <Plug>SendSelectionToTmux
-
 " }}}
 
 " == Zeus == {{{
