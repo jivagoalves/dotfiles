@@ -7,7 +7,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=$HOME/.cabal/bin:$PATH
 export PATH
 
 # Tomcat
