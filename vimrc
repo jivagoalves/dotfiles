@@ -255,7 +255,7 @@ noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<C
 noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master && clear\n")<CR>
 
 function! SanitizeInput(name)
-  return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"`:#<>-]", "", "g")
+  return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"/`:#<>-]", "", "g")
 endfunction
 
 function! GetCurrentBranch()
