@@ -389,10 +389,13 @@ nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"
 " Run migrations
 if filereadable("zeus.json")
   nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("zeus rake db:rollback\n")<CR>
 elseif filereadable("Gemfile")
   nnoremap <Leader>m :call Send_to_Tmux("bundle exec rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("bundle exec rake db:rollback\n")<CR>
 else
   nnoremap <Leader>m :call Send_to_Tmux("rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("rake db:rollback\n")<CR>
 endif
 
 " Choose faster rake when zeus or bundle is present
