@@ -1,15 +1,31 @@
 # Bash's aliases
-alias c='clear'
+function c() {
+  clear
+}
 
 # Tmux's aliases
-alias t='tmux'
-alias tls='tmux ls'
+function t() {
+  tmux
+}
+function tls() {
+  tmux ls
+}
 
 # Bundle's aliases
-alias be='bundle exec'
-alias bs='bundle show'
-alias bu='bundle update'
-alias bake='bundle exec rake'
+function be() {
+  bundle exec "$@"
+}
+function bs() {
+  bundle show "$@"
+}
+function bu() {
+  bundle update "$@"
+}
+function bake() {
+  bundle exec rake "$@"
+}
 
 # Zeus's aliases
-alias zake='zeus rake'
+function zake() {
+  zeus rake "$@"
+}
