@@ -162,6 +162,9 @@ nnoremap <Leader>; 0f;<Space>i<CR><Esc>k$j
 " Split line at dot
 nnoremap <Leader>. 0f.<Space>i<CR><Esc>k$j
 
+" Squeeze whitespaces
+nnoremap <Leader>sq :s/\s\+/ /g<CR>:noh<CR>=<Space>
+
 " Makes Leader s save the current buffer
 nnoremap <Leader>s <Esc>:w<CR>
 inoremap <Leader>s <C-o>:w<CR>
