@@ -114,6 +114,9 @@ nnoremap <Leader>ev :split $MYVIMRC<CR>
 " Reload vimrc file
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" Edit .bash_profile file
+nnoremap <Leader>eb :split $HOME/.bash_profile<CR>
+
 " Yank after the cursor instead of the entire line
 nnoremap Y y$
 
@@ -224,7 +227,7 @@ augroup evaluation
 augroup END
 
 " Refactorings
-noremap <Leader>eb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
+noremap <Leader>xb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
 
 " -- Git Customization -- {{{
 " --------------------------------------------------------------------
