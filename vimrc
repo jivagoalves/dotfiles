@@ -114,6 +114,9 @@ nnoremap <Leader>ev :split $MYVIMRC<CR>
 " Reload vimrc file
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" Edit .bash_profile file
+nnoremap <Leader>eb :split $HOME/.bash_profile<CR>
+
 " Yank after the cursor instead of the entire line
 nnoremap Y y$
 
@@ -158,6 +161,9 @@ nnoremap <Leader>; 0f;<Space>i<CR><Esc>k$j
 
 " Split line at dot
 nnoremap <Leader>. 0f.<Space>i<CR><Esc>k$j
+
+" Squeeze whitespaces
+nnoremap <Leader>sq :s/\s\+/ /g<CR>:noh<CR>=<Space>
 
 " Makes Leader s save the current buffer
 nnoremap <Leader>s <Esc>:w<CR>
@@ -224,7 +230,7 @@ augroup evaluation
 augroup END
 
 " Refactorings
-noremap <Leader>eb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
+noremap <Leader>xb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
 
 " -- Git Customization -- {{{
 " --------------------------------------------------------------------
@@ -249,7 +255,7 @@ noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<C
 noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master && clear\n")<CR>
 
 function! SanitizeInput(name)
-  return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"`:#<>-]", "", "g")
+  return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"/`:#<>-]", "", "g")
 endfunction
 
 function! GetCurrentBranch()
@@ -383,10 +389,13 @@ nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"
 " Run migrations
 if filereadable("zeus.json")
   nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("zeus rake db:rollback\n")<CR>
 elseif filereadable("Gemfile")
   nnoremap <Leader>m :call Send_to_Tmux("bundle exec rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("bundle exec rake db:rollback\n")<CR>
 else
   nnoremap <Leader>m :call Send_to_Tmux("rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("rake db:rollback\n")<CR>
 endif
 
 " Choose faster rake when zeus or bundle is present

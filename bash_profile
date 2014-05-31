@@ -7,7 +7,15 @@ fi
 
 # User specific environment and startup programs
 
+# Add cabal binaries to path
 PATH=$HOME/.cabal/bin:$PATH
+
+# Add cabal sandbox binaries to path
+PATH=.cabal-sandbox/bin:$PATH
+
+# Add binaries in current bin dir to path
+PATH=bin:$PATH
+
 export PATH
 
 # Java
