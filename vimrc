@@ -1,11 +1,161 @@
 " == General == {{{
 " ==================================================================== 
 
-" == Pathogen == {{{
+" == Vundle == {{{
 " ====================================================================
 
-call pathogen#infect()
-call pathogen#helptags()
+set nocompatible " be iMproved, required
+filetype off     " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'claco/jasmine.vim'
+Plugin 'dgrnbrg/vim-redl'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'godlygeek/tabular'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+Plugin 'henrik/vim-indexed-search'
+Plugin 'itspriddle/vim-jquery'
+
+Plugin 'jgdavey/tslime.vim'
+nmap <C-c>r <Plug>SetTmuxVars
+
+Plugin 'jgdavey/vim-turbux'
+let g:turbux_runner = 'tslime'
+
+Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'lucapette/vim-textobj-underscore'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-leiningen'
+
+Plugin 'tpope/vim-projectionist'
+
+let g:rails_projections = {
+      \ "app/presenters/*.rb": {
+      \   "command": "presenter",
+      \ },
+      \ "app/uploaders/*.rb": {
+      \   "command": "uploader",
+      \ },
+      \ "app/jobs/*.rb": {
+      \   "command": "job",
+      \ },
+      \ "app/mailers/*.rb": {
+      \   "command": "mailer",
+      \ },
+      \ "app/decorators/*.rb": {
+      \   "command": "decorator",
+      \ },
+      \ "app/validators/*.rb": {
+      \   "command": "validator",
+      \ },
+      \ "app/admin/*.rb": {
+      \   "command": "admin",
+      \ },
+      \ "config/routes.rb": {
+      \   "type": "config",
+      \ },
+      \ "config/*": {
+      \   "type": "config",
+      \   "command": "config",
+      \ },
+      \ "spec/factories/*.rb": {
+      \   "command": "factory",
+      \ },
+      \ "app/assets/javascripts/templates/*.hamlc": {
+      \   "command": "template",
+      \ },
+      \ "app/assets/javascripts/models/*.coffee": {
+      \   "command": "jmodel",
+      \ },
+      \ "app/assets/javascripts/views/*.coffee": {
+      \   "command": "jview",
+      \ },
+      \ "app/assets/javascripts/collections/*.coffee": {
+      \   "command": "jcollection",
+      \ },
+      \ "app/assets/javascripts/routers/*.coffee": {
+      \   "command": "jrouter",
+      \ },
+      \ "spec/javascripts/*.coffee": {
+      \   "command": "jspec",
+      \ },
+      \ "spec/javascripts/fixtures/*.html": {
+      \   "command": "jfixture",
+      \ },
+\ }
+
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'scripts/paredit.vim'
+Plugin 'edsono/vim-matchit'
+Plugin 'hspec/hspec.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'rodjek/vim-puppet'
+Plugin 'rson/vim-conque'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'skwp/vim-ruby-conque'
+Plugin 'tonchis/to-github-vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vividchalk'
+
+" Haskell
+" Plugin 'jivagoalves/vim2hs'
+" let g:haskell_conceal_wide = 0
+
+" Plugin 'kana/vim-filetype-haskell'
+
+" Plugin 'lukerandall/haskellmode-vim'
+" augroup haskell
+"   autocmd BufEnter *.hs compiler ghc
+" augroup END
+" let g:haddock_browser="/usr/bin/google-chrome"
+
+" Hoogle
+" Plugin 'Twinside/vim-hoogle'
+" augroup haskell_docs
+"   autocmd!
+"   autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
+" augroup END
+
+
+" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" ctags
+Plugin 'craigemery/vim-autotag'
+
+call vundle#end() " required
 
 " }}}
 
@@ -27,7 +177,35 @@ augroup highlight
   autocmd!
   " autocmd BufEnter *.rb,*.haml,*.markdown highlight OverLength ctermbg=lightyellow guibg=#592929
   " autocmd BufEnter *.rb,*.haml,*.markdown match OverLength /\%80v.*/
+
+  " Clojure
+  autocmd BufEnter *.clj RainbowParenthesesActivate
+  autocmd BufEnter *.clj RainbowParenthesesLoadRound
+  autocmd BufEnter *.clj RainbowParenthesesLoadSquare
+  autocmd BufEnter *.clj RainbowParenthesesLoadBraces
+
 augroup END
+
+" Allow to use Alt + key
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+set timeout ttimeoutlen=50
+
+" Rainbow Parentheses
+let g:rbpt_colorpairs = [
+  \ [ '13', '#6c71c4'],
+  \ [ '5',  '#d33682'],
+  \ [ '1',  '#dc322f'],
+  \ [ '9',  '#cb4b16'],
+  \ [ '3',  '#b58900'],
+  \ [ '2',  '#859900'],
+  \ [ '6',  '#2aa198'],
+  \ [ '4',  '#268bd2'],
+  \ ]
 
 " }}}
 
@@ -89,7 +267,7 @@ augroup whitespaces
   autocmd!
   autocmd BufWritePre *.rb,*.rake,*.js,*.coffee :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.haml,*.sass,*.scss,*.yml :call Preserve("%s/\\s\\+$//e")
-  autocmd BufWritePre *.clj :call Preserve("%s/\\s\\+$//e")
+  autocmd BufWritePre *.clj,*.cljs :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.hs :call Preserve("%s/\\s\\+$//e")
 augroup END
 
@@ -162,8 +340,8 @@ nnoremap <Leader>; 0f;<Space>i<CR><Esc>k$j
 " Split line at dot
 nnoremap <Leader>. 0f.<Space>i<CR><Esc>k$j
 
-" Squeeze whitespaces
-nnoremap <Leader>sq :s/\s\+/ /g<CR>:noh<CR>=<Space>
+" Squeeze whitespaces except at the beginning of the line
+nnoremap <Leader>sq :call Preserve("s/\\(\\S\\)\\s\\+/\\1 /g")<CR>
 
 " Makes Leader s save the current buffer
 nnoremap <Leader>s <Esc>:w<CR>
@@ -200,7 +378,7 @@ nnoremap Q :q<CR>
 noremap <Leader>ew <C-w>=
 
 " Zoom in/out current window
-noremap <C-w>z :call ZoomInOutCurrentWindow()<CR>
+noremap zv :call ZoomInOutCurrentWindow()<CR>
 
 let g:window_status = "out"
 function! ZoomInOutCurrentWindow()
@@ -232,6 +410,24 @@ augroup END
 " Refactorings
 noremap <Leader>xb "td?describe<CR>obefore { <ESC>"tpA }<ESC>
 
+" Clojure
+nnoremap [de :Djump <C-r><C-w><CR>
+nnoremap ]de :Djump <C-r><C-w><CR>
+nnoremap [s :Source <C-r><C-w><CR>
+nnoremap ]s :Source <C-r><C-w><CR>
+
+" Testing
+augroup testing
+  autocmd!
+  " Clojure
+  autocmd FileType clojure nnoremap <buffer> cpr :Require!<CR>:RunTests<CR>
+augroup END
+
+augroup indentation
+  autocmd!
+  autocmd FileType ruby nmap <buffer> =- =ar
+augroup END
+
 " -- Git Customization -- {{{
 " --------------------------------------------------------------------
 
@@ -253,6 +449,7 @@ noremap <Leader>gfp :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master && clear\n")<CR>
+noremap gs :Ggrep "<C-r><C-w>"<CR>
 
 function! SanitizeInput(name)
   return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"/`:#<>-]", "", "g")
@@ -265,8 +462,8 @@ endfunction
 " Expand %b to the current branch
 cnoremap <expr> %b getcmdtype() == ':' ? GetCurrentBranch() : '%%'
 
-noremap ]c :call GitGutterNextHunk()<CR>
-noremap [c :call GitGutterPrevHunk()<CR>
+noremap ]c :GitGutterNextHunk<CR>
+noremap [c :GitGutterPrevHunk<CR>
 
 " }}}
 
@@ -333,6 +530,10 @@ onoremap al' :<C-u>execute "normal! ?'\r:nohlsearch\rva'"<CR>
 " following are like inside next/last underscore
 onoremap in_ :<C-u>execute "normal! /_\r:nohlsearch\rlvt_"<CR>
 onoremap il_ :<C-u>execute "normal! ?_\r:nohlsearch\rhvT_"<CR>
+
+" following are like around next/last underscore
+onoremap an_ :<C-u>execute "normal! /_\r:nohlsearch\rvf_"<CR>
+onoremap al_ :<C-u>execute "normal! ?_\r:nohlsearch\rvF_"<CR>
 
 " }}}
 
@@ -425,49 +626,6 @@ end
 " ====================================================================
 
 let g:gist_open_browser_after_post = 1
-
-" }}}
-
-" == Rails.vim support for Backbone.js == {{{
-" ====================================================================
-
-augroup backbone
-  autocmd!
-  autocmd User Rails Rnavcommand template    app/assets/javascripts/templates   -glob=**/*  -suffix=.hamlc
-  autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models      -glob=**/*  -suffix=.coffee
-  autocmd User Rails Rnavcommand jview       app/assets/javascripts/views       -glob=**/*  -suffix=.coffee
-  autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -glob=**/*  -suffix=.coffee
-  autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers     -glob=**/*  -suffix=.coffee
-  autocmd User Rails Rnavcommand jspec       spec/javascripts                   -glob=**/*  -suffix=.coffee
-  autocmd User Rails Rnavcommand jfixture    spec/javascripts/fixtures          -glob=**/*  -suffix=.html
-augroup END
-
-" }}}
-
-" == Rails.vim support for custom paths == {{{
-" ====================================================================
-
-augroup rails_custom_paths
-  autocmd!
-  autocmd User Rails Rnavcommand presenter  app/presenters  -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand uploader   app/uploaders   -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand job        app/jobs        -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand mailer     app/mailers     -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand decorator  app/decorators  -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand validator  app/validators  -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand admin      app/admin       -glob=**/*  -suffix=.rb
-  autocmd User Rails Rnavcommand config     config          -glob=*.*   -suffix=      -default=routes.rb
-augroup END
-
-" }}}
-
-" == Rails.vim support for factories == {{{
-" ====================================================================
-
-augroup rails_factories
-  autocmd!
-  autocmd User Rails Rnavcommand factory spec/factories -glob=**/* -suffix=.rb
-augroup END
 
 " }}}
 
