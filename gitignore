@@ -1,4 +1,5 @@
 *.swp
+*.swo
 Session.vim
 .vim.custom
 gems.tags
@@ -7,4 +8,7 @@ zeus.json
 custom_plan.rb
 Guardfile
 .lein-repl-history
+.nrepl-port
+.repl
 .rake_tasks~
+.projections.json

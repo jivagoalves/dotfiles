@@ -13,13 +13,22 @@ PATH=$HOME/.cabal/bin:$PATH
 # Add cabal sandbox binaries to path
 PATH=.cabal-sandbox/bin:$PATH
 
+# Add binaries installed under home
+PATH=$HOME/bin:$PATH
+
 # Add binaries in current bin dir to path
 PATH=bin:$PATH
+
+# Add binaries installed under home
+PATH=$HOME/local/bin:$PATH
 
 export PATH
 
 # Java
-export JAVA_HOME="/usr/java/latest"
+export JAVA_HOME=$HOME/opt/jdk1.8.0_25
+
+# Add $JAVA_HOME to path
+PATH=$JAVA_HOME/bin:$PATH
 
 # Tomcat
 export CATALINA_HOME=$HOME/opt/apache-tomcat
@@ -29,6 +38,11 @@ CDPATH=$HOME/.links:$CDPATH
 
 # Use Vim as default editor
 export EDITOR=vim
+
+# Docker
+export DOCKER_HOME=$HOME/opt/docker
+export DOCKER_HOST=unix://$DOCKER_HOME/docker.sock
+export DOCKER_GID=`id -g`
 
 source ~/.bash/aliases
 source ~/.bash/completions

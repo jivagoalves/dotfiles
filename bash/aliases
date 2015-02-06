@@ -24,8 +24,25 @@ function bu() {
 function bake() {
   bundle exec rake "$@"
 }
+function cake() {
+  bundle exec cap "$@"
+}
 
 # Zeus's aliases
 function zake() {
   zeus rake "$@"
+}
+
+# Fig's aliases
+function fup() {
+  fig up -d "$@"
+}
+function fr() {
+  fig run --rm "$@"
+}
+function fs() {
+  fig start "$@"
+}
+function fps() {
+  fig ps "$@"
 }

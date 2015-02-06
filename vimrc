@@ -7,48 +7,44 @@
 set nocompatible " be iMproved, required
 filetype off     " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Set up Vim-Plug
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'claco/jasmine.vim'
+Plug 'dgrnbrg/vim-redl'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'godlygeek/tabular'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-sexp'
+Plug 'henrik/vim-indexed-search'
+Plug 'itspriddle/vim-jquery'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'claco/jasmine.vim'
-Plugin 'dgrnbrg/vim-redl'
-Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'godlygeek/tabular'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-sexp'
-Plugin 'henrik/vim-indexed-search'
-Plugin 'itspriddle/vim-jquery'
-
-Plugin 'jgdavey/tslime.vim'
+Plug 'jgdavey/tslime.vim'
 nmap <C-c>r <Plug>SetTmuxVars
 
-Plugin 'jgdavey/vim-turbux'
+Plug 'jgdavey/vim-turbux'
 let g:turbux_runner = 'tslime'
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'lucapette/vim-textobj-underscore'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-leiningen'
+Plug 'kien/ctrlp.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-leiningen'
 
-Plugin 'tpope/vim-projectionist'
+Plug 'tpope/vim-projectionist'
 
 let g:rails_projections = {
       \ "app/presenters/*.rb": {
@@ -105,41 +101,39 @@ let g:rails_projections = {
       \ },
 \ }
 
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'scripts/paredit.vim'
-Plugin 'edsono/vim-matchit'
-Plugin 'hspec/hspec.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'rodjek/vim-puppet'
-Plugin 'rson/vim-conque'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'skwp/vim-ruby-conque'
-Plugin 'tonchis/to-github-vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vividchalk'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/paredit.vim'
+Plug 'edsono/vim-matchit'
+Plug 'hspec/hspec.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kchmck/vim-coffee-script'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'rodjek/vim-puppet'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tonchis/to-github-vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vividchalk'
 
 " Haskell
-" Plugin 'jivagoalves/vim2hs'
+" Plug 'jivagoalves/vim2hs'
 " let g:haskell_conceal_wide = 0
 
-" Plugin 'kana/vim-filetype-haskell'
+" Plug 'kana/vim-filetype-haskell'
 
-" Plugin 'lukerandall/haskellmode-vim'
+" Plug 'lukerandall/haskellmode-vim'
 " augroup haskell
 "   autocmd BufEnter *.hs compiler ghc
 " augroup END
 " let g:haddock_browser="/usr/bin/google-chrome"
 
 " Hoogle
-" Plugin 'Twinside/vim-hoogle'
+" Plug 'Twinside/vim-hoogle'
 " augroup haskell_docs
 "   autocmd!
 "   autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
@@ -147,18 +141,22 @@ Plugin 'tpope/vim-vividchalk'
 
 
 " Snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 " ctags
-Plugin 'craigemery/vim-autotag'
+Plug 'craigemery/vim-autotag'
 
-call vundle#end() " required
+Plug 'terryma/vim-multiple-cursors'
+
+call plug#end()
 
 " }}}
 
+scriptencoding utf-8
+set encoding=utf-8
 set number
 set relativenumber
 set autoread
@@ -167,7 +165,7 @@ set splitbelow
 set splitright
 set smartcase
 set background=dark
-colorscheme jellybeans
+colorscheme solarized
 
 " Use behavior of shell autocomplete functions for completing filenames
 set wildmode=longest,list
