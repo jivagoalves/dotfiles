@@ -586,7 +586,7 @@ endif
 nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"<CR>:redraw!<CR>
 
 " Run migrations
-if filereadable("zeus.json")
+if filereadable(".zeus.sock")
   nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
   nnoremap <Leader>um :call Send_to_Tmux("zeus rake db:rollback\n")<CR>
 elseif filereadable("Gemfile")
