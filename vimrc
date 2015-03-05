@@ -10,7 +10,7 @@ filetype off     " required
 " Set up Vim-Plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'claco/jasmine.vim'
@@ -327,7 +327,7 @@ inoremap <C-u> <Esc>vawUea
 inoremap <C-d> <Esc>ddO
 
 " Makes K split lines (the opposite of J).
-nnoremap K i<CR><Esc>k$
+" nnoremap K i<CR><Esc>k$
 
 " Split line at comma
 nnoremap <Leader>, 0f,<Space>i<CR><Esc>k$j
