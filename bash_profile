@@ -13,6 +13,15 @@ PATH=$HOME/.cabal/bin:$PATH
 # Add cabal sandbox binaries to path
 PATH=.cabal-sandbox/bin:$PATH
 
+# Define Cabal and GHC versions
+MAJOR_GHC=7.8
+MINOR_GHC=.3
+MAJOR_CABAL=1.20
+
+# Add cabal sandbox binaries to path
+PATH=/opt/cabal/$MAJOR_CABAL/bin:$PATH
+PATH=/opt/ghc/$MAJOR_GHC$MINOR_GHC/bin:$PATH
+
 # Add binaries installed under home
 PATH=$HOME/bin:$PATH
 

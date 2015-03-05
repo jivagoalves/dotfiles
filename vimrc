@@ -121,23 +121,23 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vividchalk'
 
 " Haskell
-" Plug 'jivagoalves/vim2hs'
-" let g:haskell_conceal_wide = 0
+Plug 'jivagoalves/vim2hs'
+let g:haskell_conceal_wide = 0
 
-" Plug 'kana/vim-filetype-haskell'
+Plug 'kana/vim-filetype-haskell'
 
-" Plug 'lukerandall/haskellmode-vim'
+Plug 'lukerandall/haskellmode-vim'
 " augroup haskell
 "   autocmd BufEnter *.hs compiler ghc
 " augroup END
-" let g:haddock_browser="/usr/bin/google-chrome"
+let g:haddock_browser="/usr/bin/google-chrome"
 
 " Hoogle
-" Plug 'Twinside/vim-hoogle'
-" augroup haskell_docs
-"   autocmd!
-"   autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
-" augroup END
+Plug 'Twinside/vim-hoogle'
+augroup haskell_docs
+  autocmd!
+  autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
+augroup END
 
 
 " Snippets
