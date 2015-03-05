@@ -10,7 +10,7 @@ filetype off     " required
 " Set up Vim-Plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'claco/jasmine.vim'
@@ -121,23 +121,23 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vividchalk'
 
 " Haskell
-" Plug 'jivagoalves/vim2hs'
-" let g:haskell_conceal_wide = 0
+Plug 'jivagoalves/vim2hs'
+let g:haskell_conceal_wide = 0
 
-" Plug 'kana/vim-filetype-haskell'
+Plug 'kana/vim-filetype-haskell'
 
-" Plug 'lukerandall/haskellmode-vim'
+Plug 'lukerandall/haskellmode-vim'
 " augroup haskell
 "   autocmd BufEnter *.hs compiler ghc
 " augroup END
-" let g:haddock_browser="/usr/bin/google-chrome"
+let g:haddock_browser="/usr/bin/google-chrome"
 
 " Hoogle
-" Plug 'Twinside/vim-hoogle'
-" augroup haskell_docs
-"   autocmd!
-"   autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
-" augroup END
+Plug 'Twinside/vim-hoogle'
+augroup haskell_docs
+  autocmd!
+  autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
+augroup END
 
 
 " Snippets
@@ -327,7 +327,7 @@ inoremap <C-u> <Esc>vawUea
 inoremap <C-d> <Esc>ddO
 
 " Makes K split lines (the opposite of J).
-nnoremap K i<CR><Esc>k$
+" nnoremap K i<CR><Esc>k$
 
 " Split line at comma
 nnoremap <Leader>, 0f,<Space>i<CR><Esc>k$j
@@ -586,7 +586,7 @@ endif
 nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"<CR>:redraw!<CR>
 
 " Run migrations
-if filereadable("zeus.json")
+if filereadable(".zeus.sock")
   nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
   nnoremap <Leader>um :call Send_to_Tmux("zeus rake db:rollback\n")<CR>
 elseif filereadable("Gemfile")
