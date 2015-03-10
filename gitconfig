@@ -3,7 +3,7 @@
 	email = jivagoalves@gmail.com
 [core]
 	editor = vim
-	excludesfile = /home/jivago/.gitignore
+	excludesfile = ~/.gitignore
 [merge]
 	tool = vimdiff
 [color]
