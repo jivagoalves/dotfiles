@@ -432,7 +432,8 @@ augroup END
 noremap <Leader>gl :!clear && git log<CR>
 noremap <Leader>gln :!clear && git log --name-only<CR>
 noremap <Leader>glp :!clear && git log -p<CR>
-noremap <Leader>gs :call Send_to_Tmux("clear\ngit status -s\n")<CR>
+noremap <Leader>gs :!clear && git status -s<CR>
+noremap <Leader>gb :!clear && git branch<CR>
 noremap <Leader>ga :!clear && git add %<CR>
 noremap <Leader>gap :!clear && git add -p<CR>
 noremap <Leader>gac :!clear && git add -p %<CR>
@@ -446,7 +447,7 @@ noremap <Leader>gdc :!clear && git diff --cached<CR>
 noremap <Leader>gfp :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
-noremap <Leader>gcb :call Send_to_Tmux("git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master && clear\n")<CR>
+noremap <Leader>gcb :execute (":!clear && git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master\n")<CR>
 noremap gs :Ggrep "<C-r><C-w>"<CR>
 
 function! SanitizeInput(name)
