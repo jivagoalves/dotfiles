@@ -467,6 +467,8 @@ noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 noremap <Leader>gcb :execute (":!clear && git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master\n")<CR>
 noremap gs :Ggrep "<C-r><C-w>"<CR>
+noremap <Leader>gst :!clear && git stash<CR>
+noremap <Leader>gsp :!clear && git stash pop<CR>
 
 function! SanitizeInput(name)
   return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"/`:#<>-]", "", "g")
