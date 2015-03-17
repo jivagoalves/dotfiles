@@ -12,3 +12,4 @@ Guardfile
 .repl
 .rake_tasks~
 .projections.json
+.vimrc

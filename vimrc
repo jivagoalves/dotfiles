@@ -1,7 +1,7 @@
 " == General == {{{
 " ==================================================================== 
 
-" == Vundle == {{{
+" == Vim-Plug == {{{
 " ====================================================================
 
 set nocompatible " be iMproved, required
@@ -169,6 +169,19 @@ colorscheme solarized
 
 " Use behavior of shell autocomplete functions for completing filenames
 set wildmode=longest,list
+
+set nobackup            " don't want no backup files
+set nowritebackup       " don't make a backup before overwriting a file
+set noswapfile          " no swap files
+set hidden              " hide buffers when abandoned
+
+set undofile            " Save undo's after file closes
+set undodir=~/.vim/undo " where to save undo histories
+set undolevels=1000     " How many undos
+set undoreload=10000    " number of lines to save for undo
+
+" resize windows whenever we resize the terminal window
+autocmd VimResized * :wincmd =
 
 " Highlight chars past 80 columns
 augroup highlight
@@ -363,6 +376,11 @@ nnoremap <Leader>cl :noh<CR>:call Send_to_Tmux("clear\n")<CR>
 " Makes Q quit.
 nnoremap Q :q<CR>
 
+augroup help
+  autocmd!
+  autocmd BufEnter .vimrc noremap K :help <C-r><C-w><CR>
+augroup END
+
 " NOTE: Don't use this since it breaks
 " seamless navigation between vim
 " and tmux when we reload vimrc.
@@ -449,6 +467,8 @@ noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 noremap <Leader>gcb :execute (":!clear && git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master\n")<CR>
 noremap gs :Ggrep "<C-r><C-w>"<CR>
+noremap <Leader>gst :!clear && git stash<CR>
+noremap <Leader>gsp :!clear && git stash pop<CR>
 
 function! SanitizeInput(name)
   return substitute(join(split(tolower(a:name)), "_"), "[\]\['\"/`:#<>-]", "", "g")
