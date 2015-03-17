@@ -376,6 +376,11 @@ nnoremap <Leader>cl :noh<CR>:call Send_to_Tmux("clear\n")<CR>
 " Makes Q quit.
 nnoremap Q :q<CR>
 
+augroup help
+  autocmd!
+  autocmd BufEnter .vimrc noremap K :help <C-r><C-w><CR>
+augroup END
+
 " NOTE: Don't use this since it breaks
 " seamless navigation between vim
 " and tmux when we reload vimrc.
