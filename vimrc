@@ -1,7 +1,7 @@
 " == General == {{{
 " ==================================================================== 
 
-" == Vundle == {{{
+" == Vim-Plug == {{{
 " ====================================================================
 
 set nocompatible " be iMproved, required
@@ -169,6 +169,11 @@ colorscheme solarized
 
 " Use behavior of shell autocomplete functions for completing filenames
 set wildmode=longest,list
+
+set nobackup            " don't want no backup files
+set nowritebackup       " don't make a backup before overwriting a file
+set noswapfile          " no swap files
+set hidden              " hide buffers when abandoned
 
 " Highlight chars past 80 columns
 augroup highlight
