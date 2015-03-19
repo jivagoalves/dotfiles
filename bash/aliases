@@ -33,16 +33,16 @@ function zake() {
   zeus rake "$@"
 }
 
-# Fig's aliases
-function fup() {
-  fig up -d "$@"
+# Docker Compose's aliases
+function dup() {
+  docker-compose up -d "$@"
 }
-function fr() {
-  fig run --rm "$@"
+function dr() {
+  docker-compose run --rm "$@"
 }
-function fs() {
-  fig start "$@"
+function ds() {
+  docker-compose start "$@"
 }
-function fps() {
-  fig ps "$@"
+function dps() {
+  docker-compose ps "$@"
 }
