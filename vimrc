@@ -595,7 +595,7 @@ nnoremap <Leader>Z :call SendFocusedTestToTmuxWithZeus()<CR>
 " ====================================================================
 
 " Run all specs with Zeus or Bundle or only RSpec
-if filereadable("zeus.json")
+if filereadable(".zeus.sock")
   nnoremap <Leader>a :call Send_to_Tmux("zeus ".g:turbux_command_rspec." spec\n")<CR>
 elseif filereadable("Gemfile")
   nnoremap <Leader>a :call Send_to_Tmux("bundle exec ".g:turbux_command_rspec." spec\n")<CR>
