@@ -13,3 +13,4 @@ Guardfile
 .rake_tasks~
 .projections.json
 .vimrc
+*.dump
