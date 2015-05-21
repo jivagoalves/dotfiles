@@ -24,3 +24,5 @@
 	browser = google-chrome
 [github]
 	user = jivagoalves
+[rerere]
+	enabled = true

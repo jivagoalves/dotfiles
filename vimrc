@@ -4,6 +4,7 @@
 " == Vim-Plug == {{{
 " ====================================================================
 
+let mapleader=","
 set nocompatible " be iMproved, required
 filetype off     " required
 
@@ -151,6 +152,9 @@ Plug 'craigemery/vim-autotag'
 
 Plug 'terryma/vim-multiple-cursors'
 
+" Elm
+Plug 'lambdatoast/elm.vim.git'
+
 call plug#end()
 
 " }}}
@@ -279,7 +283,7 @@ augroup whitespaces
   autocmd BufWritePre *.rb,*.rake,*.js,*.coffee :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.haml,*.sass,*.scss,*.yml :call Preserve("%s/\\s\\+$//e")
   autocmd BufWritePre *.clj,*.cljs :call Preserve("%s/\\s\\+$//e")
-  autocmd BufWritePre *.hs :call Preserve("%s/\\s\\+$//e")
+  autocmd BufWritePre *.hs,*.elm :call Preserve("%s/\\s\\+$//e")
 augroup END
 
 " Avoid EOL at the end of the file:
@@ -462,7 +466,7 @@ noremap <Leader>gpf :!git push -f origin `git rev-parse --abbrev-ref HEAD`<CR>
 noremap <Leader>gc :!clear && git commit<CR>
 noremap <Leader>gd :!clear && git diff<CR>
 noremap <Leader>gdc :!clear && git diff --cached<CR>
-noremap <Leader>gfp :!clear && git fetch -p origin<CR>
+noremap <Leader>gfo :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 noremap <Leader>gcb :execute (":!clear && git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master\n")<CR>
