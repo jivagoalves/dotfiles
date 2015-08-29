@@ -64,6 +64,9 @@ let g:rails_projections = {
       \ "app/decorators/*.rb": {
       \   "command": "decorator",
       \ },
+      \ "app/services/*.rb": {
+      \   "command": "service",
+      \ },
       \ "app/validators/*.rb": {
       \   "command": "validator",
       \ },
