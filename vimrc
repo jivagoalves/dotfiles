@@ -25,6 +25,7 @@ Plug 'itspriddle/vim-jquery'
 
 Plug 'jgdavey/tslime.vim'
 nmap <C-c>r <Plug>SetTmuxVars
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
 
 Plug 'jgdavey/vim-turbux'
 let g:turbux_runner = 'tslime'
@@ -62,6 +63,9 @@ let g:rails_projections = {
       \ },
       \ "app/decorators/*.rb": {
       \   "command": "decorator",
+      \ },
+      \ "app/services/*.rb": {
+      \   "command": "service",
       \ },
       \ "app/validators/*.rb": {
       \   "command": "validator",
@@ -318,6 +322,9 @@ vnoremap <silent> <Leader>y y:new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq
 nnoremap <silent> <Leader>y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq! ~/reg.txt<CR>
 noremap <silent> <Leader>p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
 noremap <silent> <Leader>P :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>P
+
+" Copy to clipboard
+vnoremap <silent> <C-c> "+y
 
 " Paste in insert mode
 inoremap <C-v> <ESC>pa
