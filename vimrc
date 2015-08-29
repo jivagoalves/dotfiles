@@ -25,6 +25,7 @@ Plug 'itspriddle/vim-jquery'
 
 Plug 'jgdavey/tslime.vim'
 nmap <C-c>r <Plug>SetTmuxVars
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
 
 Plug 'jgdavey/vim-turbux'
 let g:turbux_runner = 'tslime'
