@@ -323,6 +323,9 @@ nnoremap <silent> <Leader>y :new<CR>:call setline(1,getregtype())<CR>o<Esc>P:wq!
 noremap <silent> <Leader>p :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>p
 noremap <silent> <Leader>P :sview ~/reg.txt<CR>"zdddG:q!<CR>:call setreg('"', @", @z)<CR>P
 
+" Copy to clipboard
+vnoremap <silent> <C-c> "+y
+
 " Paste in insert mode
 inoremap <C-v> <ESC>pa
 
