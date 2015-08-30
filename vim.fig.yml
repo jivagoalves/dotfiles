@@ -9,6 +9,7 @@ vim:
     - .:/home/dkr/workspace
     - /tmp:/tmp
     - /home/jivago/.ssh:/home/dkr/.ssh:ro
+    - /etc/localtime:/etc/localtime:ro
   volumes_from:
     - home
   environment:
@@ -16,3 +17,4 @@ vim:
     - DOCKER_GID
     - TMUX
     - TMUX_PANE
+    - DISPLAY=unix:0
