@@ -110,7 +110,9 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', {
+         \ 'do': './install.py --omnisharp-completer'
+     \ }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/paredit.vim'
 Plug 'edsono/vim-matchit'
@@ -158,6 +160,15 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Elm
 Plug 'lambdatoast/elm.vim.git'
+
+" Scala
+Plug 'derekwyatt/vim-scala'
+
+" F#
+Plug 'fsharp/vim-fsharp', {
+      \ 'for': 'fsharp',
+      \ 'do':  'make fsautocomplete',
+      \}
 
 call plug#end()
 
