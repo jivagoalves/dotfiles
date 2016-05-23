@@ -586,13 +586,19 @@ onoremap in@ :<C-u>execute "normal! /[A-Za-z0-9%-.]\\+@\r:nohlsearch\rvt@"<CR>
 " == Turbux Customization == {{{
 " ====================================================================
 
-" Use Bundle prefix when there is a Gemfile present
-if filereadable("Gemfile")
+" Use Bundle prefix only when there is a Gemfile present
+if filereadable("bin/spring")
+  let g:turbux_command_prefix = ''
+elseif filereadable("Gemfile")
   let g:turbux_command_prefix = 'bundle exec'
 endif
 
 " Pass in a random seed to RSpec from bash's $RANDOM
-let g:turbux_command_rspec = 'rspec --seed $RANDOM'
+if filereadable("bin/rspec")
+  let g:turbux_command_rspec = 'bin/rspec --seed $RANDOM'
+else
+  let g:turbux_command_rspec = 'rspec --seed $RANDOM'
+endif
 
 function! SendTestToTmuxWithZeus()
   let g:turbux_command_tmp = g:turbux_command_prefix
@@ -632,6 +638,9 @@ nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"
 if filereadable(".zeus.sock")
   nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
   nnoremap <Leader>um :call Send_to_Tmux("zeus rake db:rollback\n")<CR>
+elseif filereadable("bin/rake")
+  nnoremap <Leader>m :call Send_to_Tmux("bin/rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("bin/rake db:rollback\n")<CR>
 elseif filereadable("Gemfile")
   nnoremap <Leader>m :call Send_to_Tmux("bundle exec rake db:migrate db:test:prepare\n")<CR>
   nnoremap <Leader>um :call Send_to_Tmux("bundle exec rake db:rollback\n")<CR>
