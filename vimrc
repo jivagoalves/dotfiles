@@ -110,7 +110,9 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', {
+         \ 'do': './install.py --omnisharp-completer'
+     \ }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/paredit.vim'
 Plug 'edsono/vim-matchit'
@@ -158,6 +160,15 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Elm
 Plug 'lambdatoast/elm.vim.git'
+
+" Scala
+Plug 'derekwyatt/vim-scala'
+
+" F#
+Plug 'fsharp/vim-fsharp', {
+      \ 'for': 'fsharp',
+      \ 'do':  'make fsautocomplete',
+      \}
 
 call plug#end()
 
@@ -477,7 +488,7 @@ noremap <Leader>gfo :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 noremap <Leader>gcb :execute (":!clear && git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master\n")<CR>
-noremap gs :Ggrep "<C-r><C-w>"<CR>
+noremap gs :Ggrep "\b<C-r><C-w>\b"<CR>
 noremap <Leader>gst :!clear && git stash<CR>
 noremap <Leader>gsp :!clear && git stash pop<CR>
 
@@ -575,13 +586,19 @@ onoremap in@ :<C-u>execute "normal! /[A-Za-z0-9%-.]\\+@\r:nohlsearch\rvt@"<CR>
 " == Turbux Customization == {{{
 " ====================================================================
 
-" Use Bundle prefix when there is a Gemfile present
-if filereadable("Gemfile")
+" Use Bundle prefix only when there is a Gemfile present
+if filereadable("bin/spring")
+  let g:turbux_command_prefix = ''
+elseif filereadable("Gemfile")
   let g:turbux_command_prefix = 'bundle exec'
 endif
 
 " Pass in a random seed to RSpec from bash's $RANDOM
-let g:turbux_command_rspec = 'rspec --seed $RANDOM'
+if filereadable("bin/rspec")
+  let g:turbux_command_rspec = 'bin/rspec --seed $RANDOM'
+else
+  let g:turbux_command_rspec = 'rspec --seed $RANDOM'
+endif
 
 function! SendTestToTmuxWithZeus()
   let g:turbux_command_tmp = g:turbux_command_prefix
@@ -621,6 +638,9 @@ nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"
 if filereadable(".zeus.sock")
   nnoremap <Leader>m :call Send_to_Tmux("zeus rake db:migrate db:test:prepare\n")<CR>
   nnoremap <Leader>um :call Send_to_Tmux("zeus rake db:rollback\n")<CR>
+elseif filereadable("bin/rake")
+  nnoremap <Leader>m :call Send_to_Tmux("bin/rake db:migrate db:test:prepare\n")<CR>
+  nnoremap <Leader>um :call Send_to_Tmux("bin/rake db:rollback\n")<CR>
 elseif filereadable("Gemfile")
   nnoremap <Leader>m :call Send_to_Tmux("bundle exec rake db:migrate db:test:prepare\n")<CR>
   nnoremap <Leader>um :call Send_to_Tmux("bundle exec rake db:rollback\n")<CR>
