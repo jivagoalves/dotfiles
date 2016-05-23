@@ -10,6 +10,9 @@ function t() {
 function tls() {
   tmux ls
 }
+function tattach() {
+  tmux attach-session -t "$@"
+}
 
 # Bundle's aliases
 function be() {
