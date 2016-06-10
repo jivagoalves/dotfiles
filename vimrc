@@ -67,6 +67,15 @@ let g:rails_projections = {
       \ "app/services/*.rb": {
       \   "command": "service",
       \ },
+      \ "app/builders/*.rb": {
+      \   "command": "builder",
+      \ },
+      \ "app/operations/*.rb": {
+      \   "command": "operation",
+      \ },
+      \ "app/settings/*.rb": {
+      \   "command": "setting",
+      \ },
       \ "app/validators/*.rb": {
       \   "command": "validator",
       \ },
@@ -461,6 +470,9 @@ augroup testing
   autocmd FileType clojure nnoremap <buffer> cpr :Require!<CR>:RunTests<CR>
 augroup END
 
+" Run js specs
+nnoremap <Leader>j :noh<CR>:call Send_to_Tmux("bin/rake spec:javascript\n")<CR>
+
 augroup indentation
   autocmd!
   autocmd FileType ruby nmap <buffer> =- =ar
@@ -630,6 +642,9 @@ elseif filereadable("Gemfile")
 else
   nnoremap <Leader>a :call Send_to_Tmux(g:turbux_command_rspec." spec\n")<CR>
 endif
+
+" Run specs with debugging
+nnoremap <Leader>dt :call Send_to_Tmux("env POLTERGEIST_DEBUG=yes ".g:turbux_command_rspec." ".expand('%')."\n")<CR>
 
 " Restart Zeus by touching config/application.rb
 nnoremap <Leader>rz :silent execute "!touch config/application.rb > /dev/null &"<CR>:redraw!<CR>
