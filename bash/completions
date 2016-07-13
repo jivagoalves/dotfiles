@@ -1,5 +1,5 @@
 [[ -s $HOME/.bash/completion_scripts/git-completion.sh ]]     && . $HOME/.bash/completion_scripts/git-completion.sh
 [[ -s $HOME/.bash/completion_scripts/git-prompt.sh ]]         && . $HOME/.bash/completion_scripts/git-prompt.sh
 [[ -s $HOME/.bash/completion_scripts/tmux-completion.sh ]]    && . $HOME/.bash/completion_scripts/tmux-completion.sh
-[[ -s $HOME/.bash/completion_scripts/tmuxinator_completion ]] && . $HOME/.bash/completion_scripts/tmuxinator_completion
-[[ -s $HOME/.bash/completion_scripts/rake.sh ]] && . $HOME/.bash/completion_scripts/rake.sh
+[[ -s $HOME/.bash/completion_scripts/tmuxinator.bash ]]       && . $HOME/.bash/completion_scripts/tmuxinator.bash
+[[ -s $HOME/.bash/completion_scripts/rake.sh ]]               && . $HOME/.bash/completion_scripts/rake.sh
