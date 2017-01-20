@@ -29,7 +29,7 @@ PATH=$HOME/local/bin:$PATH
 export PATH
 
 # Java
-export JAVA_HOME=$HOME/opt/jdk1.8.0_25
+export JAVA_HOME=$HOME/opt/jdk
 
 # Add $JAVA_HOME to path
 PATH=$JAVA_HOME/bin:$PATH
