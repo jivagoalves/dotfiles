@@ -38,4 +38,4 @@ if [ ! -d "${STACK_HOME_DIR}" ]; then
   mkdir -p ${STACK_HOME_DIR}
 fi
 
-symlink "stack/config.yml" "$STACK_HOME_DIR/config.yml"
+symlink "stack/config.yaml" "$STACK_HOME_DIR/config.yaml"
