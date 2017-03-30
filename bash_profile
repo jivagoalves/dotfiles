@@ -90,3 +90,10 @@ function explain {
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# RVM-like for grails
+export SDKMAN_DIR="/home/jivago/.sdkman"
+[[ -s "/home/jivago/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jivago/.sdkman/bin/sdkman-init.sh"
+
+# RVM-like for java
+[ -s "/home/jivago/.jabba/jabba.sh" ] && source "/home/jivago/.jabba/jabba.sh"

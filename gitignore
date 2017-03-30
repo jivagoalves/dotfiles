@@ -16,3 +16,4 @@ Guardfile
 *.dump
 db/*.sql
 TODO
+.jabbarc

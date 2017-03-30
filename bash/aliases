@@ -3,6 +3,14 @@ function c() {
   clear
 }
 
+# apt-get's aliases
+function upgrade() {
+  sudo apt-get update && sudo apt-get upgrade -y
+}
+function get() {
+  sudo apt-get install -y "$@"
+}
+
 # Tmux's aliases
 function t() {
   tmux
@@ -12,6 +20,11 @@ function tls() {
 }
 function tattach() {
   tmux attach-session -t "$@"
+}
+
+# Vim's aliases
+function v() {
+  gvim -v "$@"
 }
 
 # Bundle's aliases
