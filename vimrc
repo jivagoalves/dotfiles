@@ -163,12 +163,12 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
 " ctags
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 
 Plug 'terryma/vim-multiple-cursors'
-
-" Elm
-Plug 'lambdatoast/elm.vim.git'
 
 " Scala
 Plug 'derekwyatt/vim-scala'
@@ -178,6 +178,12 @@ Plug 'fsharp/vim-fsharp', {
       \ 'for': 'fsharp',
       \ 'do':  'make fsautocomplete',
       \}
+
+Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+
+" Crystal
+Plug 'rhysd/vim-crystal'
 
 call plug#end()
 
@@ -424,20 +430,6 @@ augroup END
 " Make all windows (almost) equally high and wide
 noremap <Leader>ew <C-w>=
 
-" Zoom in/out current window
-noremap zv :call ZoomInOutCurrentWindow()<CR>
-
-let g:window_status = "out"
-function! ZoomInOutCurrentWindow()
-  if g:window_status ==? "in"
-    let g:window_status = "out"
-    execute "normal! \<C-w>="
-  else
-    let g:window_status = "in"
-    resize
-  endif
-endfunction
-
 " Expands %% to the path of the active buffer on Vim's command-line prompt
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -490,7 +482,7 @@ noremap <Leader>ga :!clear && git add %<CR>
 noremap <Leader>gap :!clear && git add -p<CR>
 noremap <Leader>gac :!clear && git add -p %<CR>
 noremap <Leader>gca :!clear && git commit --amend<CR>
-noremap <Leader>gcp :!clear && git checkout -p %<CR>
+noremap <Leader>gcp :!clear && git checkout -p<CR>
 noremap <Leader>gp :!git push origin `git rev-parse --abbrev-ref HEAD`<CR>
 noremap <Leader>gpf :!git push -f origin `git rev-parse --abbrev-ref HEAD`<CR>
 noremap <Leader>gc :!clear && git commit<CR>
@@ -498,6 +490,9 @@ noremap <Leader>gd :!clear && git diff<CR>
 noremap <Leader>gdc :!clear && git diff --cached<CR>
 noremap <Leader>gfo :!clear && git fetch -p origin<CR>
 noremap <Leader>gr :!clear && git rebase origin/master<CR>
+noremap <Leader>gri :!clear && git rebase -i origin/master<CR>
+noremap <Leader>grc :!clear && git rebase --continue<CR>
+noremap <Leader>gra :!clear && git rebase --abort<CR>
 noremap <Leader>gfr :!clear && git fetch -p origin && git rebase origin/master<CR>
 noremap <Leader>gcb :execute (":!clear && git checkout -b " . SanitizeInput(input("New branch name:")) . " origin/master\n")<CR>
 noremap gs :Ggrep "\b<C-r><C-w>\b"<CR>
