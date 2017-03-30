@@ -22,6 +22,11 @@ function tattach() {
   tmux attach-session -t "$@"
 }
 
+# Vim's aliases
+function v() {
+  gvim -v "$@"
+}
+
 # Bundle's aliases
 function be() {
   bundle exec "$@"
