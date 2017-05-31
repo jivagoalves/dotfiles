@@ -97,3 +97,7 @@ export SDKMAN_DIR="/home/jivago/.sdkman"
 
 # RVM-like for java
 [ -s "/home/jivago/.jabba/jabba.sh" ] && source "/home/jivago/.jabba/jabba.sh"
+
+# Maven stuff
+export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
+export MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"

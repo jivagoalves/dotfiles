@@ -26,3 +26,7 @@
 	user = jivagoalves
 [rerere]
 	enabled = true
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
