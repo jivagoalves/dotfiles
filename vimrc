@@ -30,7 +30,6 @@ vmap <C-c><C-c> <Plug>SendSelectionToTmux
 Plug 'jgdavey/vim-turbux'
 let g:turbux_runner = 'tslime'
 
-Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'mattn/gist-vim'
@@ -155,6 +154,37 @@ augroup haskell_docs
   autocmd BufEnter *.hs noremap K :Hoogle <C-r><C-w><CR>
 augroup END
 
+Plug 'eagletmt/ghcmod-vim'
+
+nnoremap <silent> tw :GhcModTypeInsert<CR>
+nnoremap <silent> ts :GhcModSplitFunCase<CR>
+nnoremap <silent> tt :GhcModType<CR>
+nnoremap <silent> te :GhcModTypeClear<CR>
+
+Plug 'eagletmt/neco-ghc'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'ervandew/supertab'
+
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+if has("gui_running")
+  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+  endif
+endif
+
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimproc.vim', {
+      \ 'for': 'haskell',
+      \ 'do':  'make',
+      \}
 
 " Snippets
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -418,6 +448,15 @@ augroup help
   autocmd BufEnter .vimrc noremap K :help <C-r><C-w><CR>
 augroup END
 
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
 " NOTE: Don't use this since it breaks
 " seamless navigation between vim
 " and tmux when we reload vimrc.
@@ -484,6 +523,7 @@ noremap <Leader>gac :!clear && git add -p %<CR>
 noremap <Leader>gca :!clear && git commit --amend<CR>
 noremap <Leader>gcp :!clear && git checkout -p<CR>
 noremap <Leader>gp :!git push origin `git rev-parse --abbrev-ref HEAD`<CR>
+noremap <Leader>gpr :!git pull --rebase<CR>
 noremap <Leader>gpf :!git push -f origin `git rev-parse --abbrev-ref HEAD`<CR>
 noremap <Leader>gc :!clear && git commit<CR>
 noremap <Leader>gd :!clear && git diff<CR>

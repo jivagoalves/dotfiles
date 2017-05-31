@@ -22,6 +22,11 @@ function tattach() {
   tmux attach-session -t "$@"
 }
 
+# Tmuxinator's aliases
+function mux() {
+  tmuxinator "$@"
+}
+
 # Vim's aliases
 function v() {
   gvim -v "$@"
