@@ -215,6 +215,9 @@ Plug 'edkolev/tmuxline.vim'
 " Crystal
 Plug 'rhysd/vim-crystal'
 
+" Idris
+Plug 'idris-hackers/idris-vim'
+
 call plug#end()
 
 " }}}
