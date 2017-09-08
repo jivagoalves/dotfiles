@@ -70,3 +70,17 @@ function ds() {
 function dps() {
   docker-compose ps "$@"
 }
+
+# Maven's aliases
+function mrun() {
+  mvn grails:run-app -Dgrails.env=${GRAILS_ENV:-development} -Dserver.port=${SERVER_PORT:-8200}
+}
+function mpkg() {
+  env MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m" mvn clean package -Dmaven.test.skip=true "$@"
+}
+function mtest() {
+  env MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m" mvn test "$@"
+}
+function mclean() {
+  env MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m" mvn clean "$@"
+}

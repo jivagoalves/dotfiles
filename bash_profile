@@ -44,8 +44,8 @@ CDPATH=$HOME/.links:$CDPATH
 export EDITOR=vim
 
 # Docker
-export DOCKER_HOME=$HOME/opt/docker
-export DOCKER_HOST=unix://$DOCKER_HOME/docker.sock
+export DOCKER_HOME=/home/docker
+export DOCKER_HOST=unix:///var/run/docker.sock
 export DOCKER_GID=`id -g`
 
 source ~/.bash/aliases
@@ -98,6 +98,5 @@ export SDKMAN_DIR="/home/jivago/.sdkman"
 # RVM-like for java
 [ -s "/home/jivago/.jabba/jabba.sh" ] && source "/home/jivago/.jabba/jabba.sh"
 
-# Maven stuff
-export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
-export MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+# Autoenv
+source `which activate.sh`
