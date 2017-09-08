@@ -44,8 +44,8 @@ CDPATH=$HOME/.links:$CDPATH
 export EDITOR=vim
 
 # Docker
-export DOCKER_HOME=$HOME/opt/docker
-export DOCKER_HOST=unix://$DOCKER_HOME/docker.sock
+export DOCKER_HOME=/home/docker
+export DOCKER_HOST=unix:///var/run/docker.sock
 export DOCKER_GID=`id -g`
 
 source ~/.bash/aliases
