@@ -20,6 +20,10 @@
 	d = diff
 	adduntracked = !git add $(git ls-files -o --exclude-standard)
 	cleanbranches = !git branch --merged | grep -v "\\*" | grep -v master | xargs -n 1 git branch -d
+  pullall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=10 -I{} git -C {} pull --rebase
+  stashall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=10 -I{} git -C {} stash
+  statusall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=1 -I{} sh -c 'echo {} && git -C {} status -s'
+  diffall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=10 -I{} sh -c 'echo {} && git -C {} diff'
 [web]
 	browser = google-chrome
 [github]

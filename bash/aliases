@@ -23,7 +23,7 @@ function tattach() {
 }
 
 # Tmuxinator's aliases
-function mux() {
+function mx() {
   tmuxinator "$@"
 }
 
@@ -59,21 +59,27 @@ function dkc() {
   docker-compose "$@"
 }
 function dup() {
-  docker-compose up -d "$@"
+  docker-compose "$@" up
 }
-function dr() {
+function drun() {
   docker-compose run --rm "$@"
 }
-function ds() {
+function dstart() {
   docker-compose start "$@"
 }
 function dps() {
-  docker-compose ps "$@"
+  docker ps "$@"
+}
+function dexec() {
+  docker exec -it "$@"
+}
+function dshell() {
+  docker exec -it "$@" /bin/bash
 }
 
 # Maven's aliases
 function mrun() {
-  mvn grails:run-app -Dgrails.env=${GRAILS_ENV:-development} -Dserver.port=${SERVER_PORT:-8200}
+  mvn grails:run-app -Dgrails.env=${GRAILS_ENV:-development} -Dserver.port=${SERVER_PORT:-8200} "$@"
 }
 function mpkg() {
   env MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m" mvn clean package -Dmaven.test.skip=true "$@"
@@ -83,4 +89,17 @@ function mtest() {
 }
 function mclean() {
   env MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m" mvn clean "$@"
+}
+function minstall() {
+  env MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=512m" mvn grails:install-plugin -DpluginName="$@"
+}
+
+# Crystal's aliases
+function cr() {
+  crystal "$@"
+}
+
+# Serverless Frameworks's aliases
+function srv() {
+  serverless "$@"
 }

@@ -5,6 +5,8 @@
 " ====================================================================
 
 let mapleader=","
+nnoremap <Space> <Nop>
+let maplocalleader=" "
 set nocompatible " be iMproved, required
 filetype off     " required
 
@@ -20,6 +22,7 @@ Plug 'ecomba/vim-ruby-refactoring'
 Plug 'godlygeek/tabular'
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'henrik/vim-indexed-search'
 Plug 'itspriddle/vim-jquery'
 
