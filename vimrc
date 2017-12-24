@@ -42,6 +42,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-salve'
+Plug 'gonzaloserrano/vim-salve', { 'branch': 'revert-14-cljc-files' }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
@@ -122,11 +124,11 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe', {
-         \ 'do': './install.py --omnisharp-completer'
+         \ 'do': './install.py'
      \ }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/paredit.vim'
-Plug 'edsono/vim-matchit'
+" Plug 'edsono/vim-matchit'
 Plug 'hspec/hspec.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kchmck/vim-coffee-script'
@@ -375,6 +377,9 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " Edit .bash_profile file
 nnoremap <Leader>eb :split $HOME/.bash_profile<CR>
+
+" Edit .tmux.conf file
+nnoremap <Leader>et :split $HOME/.tmux.conf<CR>
 
 " Yank after the cursor instead of the entire line
 nnoremap Y y$
