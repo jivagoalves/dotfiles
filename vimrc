@@ -230,7 +230,7 @@ call plug#end()
 scriptencoding utf-8
 set encoding=utf-8
 set number
-set relativenumber
+" set relativenumber
 set autoread
 set list listchars=tab:\ \ ,trail:·
 set splitbelow
