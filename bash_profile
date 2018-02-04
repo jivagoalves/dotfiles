@@ -89,17 +89,17 @@ function explain {
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+[[ -s "$HOME/.rbenv/bin/rbenv" ]] && eval "$(rbenv init -)"
 
 # RVM-like for grails
 export SDKMAN_DIR="/home/jivago/.sdkman"
 [[ -s "/home/jivago/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jivago/.sdkman/bin/sdkman-init.sh"
 
 # RVM-like for java
-[ -s "/home/jivago/.jabba/jabba.sh" ] && source "/home/jivago/.jabba/jabba.sh"
+[[ -s "/home/jivago/.jabba/jabba.sh" ]] && source "/home/jivago/.jabba/jabba.sh"
 
 # Autoenv
-source `which activate.sh`
+[[ -s `which activate.sh` ]] && source `which activate.sh`
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
@@ -119,5 +119,5 @@ export PATH="$HOME/.yarn/bin:$PATH"
 [ -f /home/jivago/.config/yarn/global/node_modules/tabtab/.completions/sls.bash ] && . /home/jivago/.config/yarn/global/node_modules/tabtab/.completions/sls.bash
 
 # Version manager for Elixir
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+[[ -s $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
+[[ -s $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
