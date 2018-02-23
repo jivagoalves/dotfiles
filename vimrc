@@ -236,6 +236,16 @@ set list listchars=tab:\ \ ,trail:·
 set splitbelow
 set splitright
 set smartcase
+
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    " Quick fix for solarized issue on other
+    " ppl's machines when pairing via tmate.
+    let g:solarized_termcolors=256
+  endif
+endif
+
 set background=dark
 colorscheme solarized
 
