@@ -32,9 +32,9 @@ function v() {
   if which gvim; then
     gvim -v "$@"
   elif which nvim; then
-    nvim -v "$@"
+    nvim "$@"
   else
-    vim -v "$@"
+    vim "$@"
   fi
 }
 
