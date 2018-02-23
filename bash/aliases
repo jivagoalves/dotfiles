@@ -29,7 +29,13 @@ function mx() {
 
 # Vim's aliases
 function v() {
-  gvim -v "$@"
+  if which gvim; then
+    gvim -v "$@"
+  elif which nvim; then
+    nvim -v "$@"
+  else
+    vim -v "$@"
+  fi
 }
 
 # Bundle's aliases

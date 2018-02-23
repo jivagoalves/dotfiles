@@ -2,5 +2,5 @@
 
 # Use ~/.bash_profile
 if [ -f ~/.bashrc ]; then
-	. ~/.bash_profile
+  . ~/.bash_profile
 fi
