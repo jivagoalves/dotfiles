@@ -517,6 +517,7 @@ augroup testing
   autocmd!
   " Clojure
   autocmd FileType clojure nnoremap <buffer> cpr :Require!<CR>:RunTests<CR>
+  autocmd FileType clojure nnoremap <buffer> cll :Eval (clojure.tools.namespace.repl/refresh-all)<CR>
 augroup END
 
 " Run js specs
