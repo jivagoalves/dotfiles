@@ -20,9 +20,26 @@ Plug 'claco/jasmine.vim'
 Plug 'dgrnbrg/vim-redl'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'godlygeek/tabular'
+Plug 'scrooloose/syntastic'
+
+" Clojure {{{
+
+let g:syntastic_clojure_checkers = ['eastwood']
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-fireplace'
+" Plug 'tpope/vim-salve'
+Plug 'gonzaloserrano/vim-salve', { 'branch': 'revert-14-cljc-files' }
+Plug 'tpope/vim-leiningen'
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'venantius/vim-eastwood'
+Plug 'venantius/vim-cljfmt'
+" Plug 'bhurlow/vim-parinfer'
+
+" }}}
+
 Plug 'henrik/vim-indexed-search'
 Plug 'itspriddle/vim-jquery'
 
@@ -40,15 +57,9 @@ Plug 'mattn/webapi-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-salve'
-Plug 'gonzaloserrano/vim-salve', { 'branch': 'revert-14-cljc-files' }
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-haml'
-Plug 'tpope/vim-leiningen'
 
 Plug 'tpope/vim-projectionist'
 
@@ -135,7 +146,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'tonchis/to-github-vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vividchalk'
