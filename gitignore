@@ -17,3 +17,5 @@ Guardfile
 db/*.sql
 TODO
 .jabbarc
+.floo
+.flooignore
