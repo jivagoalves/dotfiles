@@ -1,3 +1,6 @@
-{:user {:dependencies [[lein-cljfmt "0.5.7"]
+{:user {:dependencies [[lein-cljfmt-editor "0.1.0"]
                        [jonase/eastwood "0.2.5" :exclusions [org.clojure/clojure]]]
-        :repl-options {:init (require 'cljfmt.core)}}}
+        :plugins [[lein-cljfmt-editor "0.1.0"]
+                  [jonase/eastwood "0.2.5"]]
+        :repl-options {:init (require 'cljfmt.core)}
+        :cljfmt {:indentation? false}}}

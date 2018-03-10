@@ -35,7 +35,12 @@ Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'venantius/vim-eastwood'
-Plug 'venantius/vim-cljfmt'
+
+" Use following fork to be able to
+" pass in custom config
+Plug 'MichaelBlume/vim-cljfmt'
+" Plug 'venantius/vim-cljfmt'
+
 " Plug 'bhurlow/vim-parinfer'
 
 " }}}
