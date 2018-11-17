@@ -533,6 +533,7 @@ augroup testing
   " Clojure
   autocmd FileType clojure nnoremap <buffer> cpr :Require!<CR>:RunTests<CR>
   autocmd FileType clojure nnoremap <buffer> cll :Eval (clojure.tools.namespace.repl/refresh-all)<CR>
+  autocmd FileType clojure nnoremap <buffer> <Leader>t :call Send_to_Tmux("(require '[eftest.runner]'[clojure.tools.namespace.repl]) (clojure.tools.namespace.repl/refresh-all) (eftest.runner/run-tests (eftest.runner/find-tests \"test\"))\n")<CR>
 augroup END
 
 " Run js specs
