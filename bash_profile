@@ -90,6 +90,9 @@ function explain {
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 [[ -s "$HOME/.rbenv/bin/rbenv" ]] && eval "$(rbenv init -)"
+if type "rbenv" > /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 # RVM-like for grails
 export SDKMAN_DIR="/home/jivago/.sdkman"
