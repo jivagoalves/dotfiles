@@ -76,6 +76,9 @@ function dstart() {
 function dps() {
   docker ps "$@"
 }
+function drm() {
+  docker stop "$@" && docker rm "$@"
+}
 function dexec() {
   docker exec -it "$@"
 }
