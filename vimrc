@@ -238,6 +238,10 @@ Plug 'rhysd/vim-crystal'
 " Idris
 Plug 'idris-hackers/idris-vim'
 
+" command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 " }}}
@@ -543,6 +547,15 @@ augroup indentation
   autocmd!
   autocmd FileType ruby nmap <buffer> =- =ar
 augroup END
+
+" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+nnoremap <Space><Space> :GGrep<CR>
 
 " -- Git Customization -- {{{
 " --------------------------------------------------------------------
