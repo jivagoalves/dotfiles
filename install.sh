@@ -5,7 +5,14 @@ set -e
 UNDO_DIR=${HOME}/.vim/undo
 STACK_HOME_DIR=${HOME}/.stack
 LEIN_HOME_DIR=${HOME}/.lein
-VSCODE_SETTINGS_DIR=${HOME}/.config/Code/User
+if [ "$(uname)" == "Darwin" ]; then
+  VSCODE_SETTINGS_DIR="${HOME}/Library/Application Support/Code/User"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  VSCODE_SETTINGS_DIR=${HOME}/.config/Code/User
+else
+  echo "ERROR: Unable to setup VS Code because platform is unknown"
+  exit 1
+fi
 
 if [ ! -d "${UNDO_DIR}" ]; then
   echo "Creating directory ${UNDO_DIR}"
