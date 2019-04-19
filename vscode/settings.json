@@ -1,11 +1,53 @@
 {
     "editor.fontSize": 12,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "window.zoomLevel": 0,
+
+    "liveshare.featureSet": "insiders",
 
     "vim.leader": ",",
     "vim.insertModeKeyBindingsNonRecursive": [
         {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        }
-    ]
+            "before": [ "j", "k", ],
+            "after": [ "<Esc>" ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [ "Q", ],
+            "commands": [ ":q", ],
+        },
+        {
+            "before": [ "<Leader>", "s", ],
+            "commands": [ ":w", ],
+        },
+        {
+            "before": [ "<Leader>", "<Space>", ],
+            "commands": [ "workbench.action.findInFiles", ],
+        },
+        {
+            "before": [ "-", ],
+            "after": [ "d", "d", "p" ],
+        },
+        {
+            "before": [ "<Leader>", "p", "p", ],
+            "after": [ "v", "a", "(" ],
+            "commands": [ "calva.evalCurrentFormInREPLTerminal", ],
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [ "<Leader>", "p", "p", ],
+            "commands": [ "clojureVSCode.evalAndShowResult" ]
+        },
+        {
+            "before": [ ">" ],
+            "commands": [ "editor.action.indentLines" ]
+        },
+        {
+            "before": [ "<" ],
+            "commands": [ "editor.action.outdentLines" ]
+        },
+    ],
 }
