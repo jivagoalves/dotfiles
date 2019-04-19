@@ -1,8 +1,12 @@
 {
+    "window.zoomLevel": 0,
+
     "editor.fontSize": 12,
     "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
-    "window.zoomLevel": 0,
+    "editor.renderWhitespace": "none",
+
+    "files.trimTrailingWhitespace": true,
 
     "liveshare.featureSet": "insiders",
 

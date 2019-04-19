@@ -1,7 +1,19 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "c p p",
-        "command": "clojureVSCode.evalAndShowResult"
-    }
+        "key": "Ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "Ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "Ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "Ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
 ]
