@@ -11,15 +11,21 @@
     "liveshare.featureSet": "insiders",
 
     "vim.leader": ",",
+
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [ "j", "k", ],
             "after": [ "<Esc>" ]
         },
     ],
+
     "vim.normalModeKeyBindingsNonRecursive": [
+        // {
+        //     "before": [ "<Leader>", "i", ],
+        //     "after": [ "v", "a", "f", "c", "(", "<Esc>", "p", "i", ]
+        // },
         {
-            "before": [ "Q", ],
+            "before": [ "<C-x>", ],
             "commands": [ ":q", ],
         },
         {
@@ -27,19 +33,48 @@
             "commands": [ ":w", ],
         },
         {
-            "before": [ "<Leader>", "<Space>", ],
-            "commands": [ "workbench.action.findInFiles", ],
-        },
-        {
             "before": [ "-", ],
             "after": [ "d", "d", "p" ],
         },
         {
+            "before": [ "z", "j", ],
+            "after": [ "z", "b" ]
+        },
+        {
+            "before": [ "z", "k", ],
+            "after": [ "z", "t" ]
+        },
+        {
+            "before": [ "<Leader>", "<Space>", ],
+            "commands": [ "workbench.action.findInFiles", ],
+        },
+        {
+            "before": [ "<Leader>", "a", "a" ],
+            "commands": [ "alternate.alternateFile" ]
+        },
+        {
+            "before": [ "<Leader>", "a", "s" ],
+            "commands": [ "alternate.alternateFileInSplit" ]
+        },
+        {
+            "before": [ "]", "<C-d>", ],
+            "commands": [ "editor.action.revealDefinition", ],
+        },
+        {
+            "before": [ "[", "<C-d>", ],
+            "commands": [ "editor.action.revealDefinition", ],
+        },
+        {
             "before": [ "<Leader>", "p", "p", ],
-            "after": [ "v", "a", "(" ],
-            "commands": [ "calva.evalCurrentFormInREPLTerminal", ],
+            "after": [ "v", "a", "f", ],
+            "commands": [ "calva.evaluateSelection", ],
+        },
+        {
+            "before": [ "<Leader>", "P", "P", ],
+            "commands": [ "calva.evaluateCurrentTopLevelForm", ],
         },
     ],
+
     "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": [ "<Leader>", "p", "p", ],
@@ -52,6 +87,14 @@
         {
             "before": [ "<" ],
             "commands": [ "editor.action.outdentLines" ]
+        },
+        {
+            "before": [ "<Leader>", "p", "p", ],
+            "commands": [ "calva.evaluateSelection", ],
+        },
+        {
+            "before": [ "<Leader>", "P", "P", ],
+            "commands": [ "calva.evaluateCurrentTopLevelForm", ],
         },
     ],
 }
