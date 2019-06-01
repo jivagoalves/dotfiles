@@ -1,0 +1,14 @@
+"*":
+  core:
+    telemetryConsent: "no"
+  editor:
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "e11624d6-27e3-4bc1-aeb3-f09ad1a5e7b7"
+  "proto-repl":
+    autoPrettyPrint: true
+  "tool-bar":
+    position: "Bottom"
+    visible: false
+  "vim-mode-plus":
+    keymapYToYankToLastCharacterOfLine: true

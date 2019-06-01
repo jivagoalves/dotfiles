@@ -1,0 +1,23 @@
+'body':
+  'ctrl-h': 'window:focus-pane-on-left'
+  'ctrl-l': 'window:focus-pane-on-right'
+  'ctrl-k': 'window:focus-pane-above'
+  'ctrl-j': 'window:focus-pane-below'
+  'ctrl-a v': 'pane:split-right'
+  'ctrl-a s': 'pane:split-down'
+  'ctrl-w': 'unset!'
+  'shift-q': 'pane:close'
+
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-l': 'window:focus-pane-on-right'
+  'ctrl-j': 'unset!'
+  'c p p': 'proto-repl:execute-block'
+  'z k': 'proto-repl:execute-block'
+  'z j': 'proto-repl:execute-block'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.operator-pending-mode)':
+  'z j': 'vim-mode-plus:redraw-cursor-line-at-bottom'
+  'z k': 'vim-mode-plus:redraw-cursor-line-at-top'
+
+'atom-text-editor':
+  'ctrl-l': 'window:focus-pane-on-right'
