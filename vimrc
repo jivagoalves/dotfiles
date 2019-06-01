@@ -32,16 +32,21 @@ Plug 'tpope/vim-fireplace'
 Plug 'gonzaloserrano/vim-salve', { 'branch': 'revert-14-cljc-files' }
 Plug 'tpope/vim-leiningen'
 Plug 'guns/vim-clojure-static'
+
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^Given', '^When', '^Then']
+
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'venantius/vim-eastwood'
+" Plug 'venantius/vim-eastwood'
 
 " Use following fork to be able to
 " pass in custom config
-Plug 'MichaelBlume/vim-cljfmt'
+" Plug 'MichaelBlume/vim-cljfmt'
 " Plug 'venantius/vim-cljfmt'
 
 " Plug 'bhurlow/vim-parinfer'
+
+Plug 'aclaimant/syntastic-joker'
 
 " }}}
 
@@ -139,9 +144,9 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', {
-         \ 'do': './install.py'
-     \ }
+" Plug 'Valloric/YouCompleteMe', {
+"          \ 'do': './install.py'
+"      \ }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/paredit.vim'
 " Plug 'edsono/vim-matchit'
@@ -183,6 +188,7 @@ nnoremap <silent> te :GhcModTypeClear<CR>
 
 Plug 'eagletmt/neco-ghc'
 Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_use_caching = 0
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'ervandew/supertab'
@@ -537,7 +543,7 @@ augroup testing
   " Clojure
   autocmd FileType clojure nnoremap <buffer> cpr :Require!<CR>:RunTests<CR>
   autocmd FileType clojure nnoremap <buffer> cll :Eval (clojure.tools.namespace.repl/refresh-all)<CR>
-  autocmd FileType clojure nnoremap <buffer> <Leader>t :call Send_to_Tmux("(require '[eftest.runner]'[clojure.tools.namespace.repl]) (clojure.tools.namespace.repl/refresh-all) (eftest.runner/run-tests (eftest.runner/find-tests \"test\"))\n")<CR>
+  autocmd FileType clojure nnoremap <buffer> <Leader>t :call Send_to_Tmux("(require '[eftest.runner]'[clojure.tools.namespace.repl]) (reloaded.repl/reset) (eftest.runner/run-tests (eftest.runner/find-tests \"test\"))\n")<CR>
 augroup END
 
 " Run js specs

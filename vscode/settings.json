@@ -97,4 +97,5 @@
             "commands": [ "calva.evaluateCurrentTopLevelForm", ],
         },
     ],
+    "breadcrumbs.enabled": true,
 }

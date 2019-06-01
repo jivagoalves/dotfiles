@@ -34,3 +34,5 @@
 	default = simple
 [branch]
 	autosetuprebase = always
+[commit]
+  template = ~/.gitmessage
