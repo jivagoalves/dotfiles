@@ -29,7 +29,7 @@ PATH=$HOME/local/bin:$PATH
 export PATH
 
 # Java
-export JAVA_HOME=$HOME/.jabba/jdk/default
+# export JAVA_HOME=$HOME/.jabba/jdk/default
 
 # Add $JAVA_HOME to path
 PATH=$JAVA_HOME/bin:$PATH
@@ -99,7 +99,7 @@ export SDKMAN_DIR="/home/jivago/.sdkman"
 [[ -s "/home/jivago/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jivago/.sdkman/bin/sdkman-init.sh"
 
 # RVM-like for java
-[[ -s "/home/jivago/.jabba/jabba.sh" ]] && source "/home/jivago/.jabba/jabba.sh"
+# [[ -s "/home/jivago/.jabba/jabba.sh" ]] && source "/home/jivago/.jabba/jabba.sh"
 
 # Autoenv
 [[ -s `which activate.sh` ]] && source `which activate.sh`
@@ -124,3 +124,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # Version manager for Elixir
 [[ -s $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
+[[ -s $HOME/.asdf/plugins/java/asdf-java-wrapper.bash ]] && . $HOME/.asdf/plugins/java/asdf-java-wrapper.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
