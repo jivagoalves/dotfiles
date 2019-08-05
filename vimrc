@@ -33,7 +33,7 @@ Plug 'gonzaloserrano/vim-salve', { 'branch': 'revert-14-cljc-files' }
 Plug 'tpope/vim-leiningen'
 Plug 'guns/vim-clojure-static'
 
-let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^Given', '^When', '^Then']
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^Feature', '^Scenario', '^Given', '^When', '^Then', '^And']
 
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
