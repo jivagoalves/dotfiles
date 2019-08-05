@@ -31,8 +31,8 @@ function mx() {
 function v() {
   if which gvim; then
     gvim -v "$@"
-  elif which nvim; then
-    nvim "$@"
+  elif which mvim; then
+    mvim -v "$@"
   else
     vim "$@"
   fi
