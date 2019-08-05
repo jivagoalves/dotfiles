@@ -24,7 +24,7 @@ Plug 'scrooloose/syntastic'
 
 " Clojure {{{
 
-let g:syntastic_clojure_checkers = ['eastwood']
+let g:syntastic_clojure_checkers = ['joker']
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-fireplace'
