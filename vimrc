@@ -541,9 +541,9 @@ nnoremap ]s :Source <C-r><C-w><CR>
 augroup testing
   autocmd!
   " Clojure
-  autocmd FileType clojure nnoremap <buffer> cpr :Require!<CR>:RunTests<CR>
   autocmd FileType clojure nnoremap <buffer> cll :Eval (clojure.tools.namespace.repl/refresh-all)<CR>
-  autocmd FileType clojure nnoremap <buffer> <Leader>t :call Send_to_Tmux("(require '[eftest.runner]'[clojure.tools.namespace.repl]) (reloaded.repl/reset) (eftest.runner/run-tests (eftest.runner/find-tests \"test\"))\n")<CR>
+  autocmd FileType clojure nnoremap <buffer> cjj :Require!<CR>:RunTests<CR>
+  autocmd FileType clojure nnoremap <buffer> <Leader>t :Require!<CR>:RunTests<CR>
 augroup END
 
 " Run js specs

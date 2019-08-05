@@ -127,3 +127,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 [[ -s $HOME/.asdf/plugins/java/asdf-java-wrapper.bash ]] && . $HOME/.asdf/plugins/java/asdf-java-wrapper.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# linuxbrew
+[[ -s $HOME/.linuxbrew/bin/brew ]] && eval $(/home/jivago/.linuxbrew/bin/brew shellenv)
