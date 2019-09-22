@@ -102,6 +102,9 @@ export SDKMAN_DIR="/home/jivago/.sdkman"
 # [[ -s "/home/jivago/.jabba/jabba.sh" ]] && source "/home/jivago/.jabba/jabba.sh"
 
 # Autoenv
+## Install w/ `git clone git://github.com/inishchith/autoenv.git ~/.autoenv`
+[[ -s ~/.autoenv/activate.sh ]] && source ~/.autoenv/activate.sh
+## System-wide installation
 [[ -s `which activate.sh` ]] && source `which activate.sh`
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
