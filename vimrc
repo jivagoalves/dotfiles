@@ -541,7 +541,7 @@ augroup testing
   autocmd!
   " Clojure
   autocmd FileType clojure nnoremap <buffer> cll :Eval (clojure.tools.namespace.repl/refresh-all)<CR>
-  autocmd FileType clojure nnoremap <buffer> cjj :Require!<CR>:RunTests<CR>
+  autocmd FileType clojure nnoremap <buffer> cjj :RunTests<CR>
   autocmd FileType clojure nnoremap <buffer> <Leader>t :Require!<CR>:RunTests<CR>
 augroup END
 
