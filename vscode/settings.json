@@ -66,12 +66,36 @@
         },
         {
             "before": [ "<Leader>", "p", "p", ],
-            "after": [ "v", "a", "f", ],
+            "after": [ "v", "a", ")", ],
             "commands": [ "calva.evaluateSelection", ],
         },
         {
             "before": [ "<Leader>", "P", "P", ],
             "commands": [ "calva.evaluateCurrentTopLevelForm", ],
+        },
+        {
+            "before": [ "<Leader>", "o", ],
+            "after": [ "d", "a", "(", "v", "a", "(", "p", ],
+        },
+        {
+            "before": [ "<Leader>", "O", ],
+            "after": [ "d", "a", "w", "v", "a", "(", "p", ],
+        },
+        {
+            "before": [ "<Leader>", "i", ],
+            "after": [ "c", "a", "(", "(", "$", " ", ")", "<Esc>", "P", "F", "$", "s", ],
+        },
+        {
+            "before": [ "<Leader>", "I", ],
+            "after": [ "c", "a", "(", "(", ")", "<Esc>", "P", "i", ],
+        },
+        {
+            "before": [ "<Leader>", "w", ],
+            "after": [ "c", "a", "w", "(", "$", " ", ")", "<Esc>", "P", "F", "$", "s", ],
+        },
+        {
+            "before": [ "<Leader>", "W", ],
+            "after": [ "c", "a", "w", "(", ")", "<Esc>", "P", "a", ],
         },
     ],
 
