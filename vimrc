@@ -188,7 +188,6 @@ nnoremap <silent> te :GhcModTypeClear<CR>
 
 Plug 'eagletmt/neco-ghc'
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_use_caching = 0
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'ervandew/supertab'
