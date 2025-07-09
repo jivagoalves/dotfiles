@@ -1,6 +1,7 @@
 [user]
 	name = Jivago Alves
 	email = jivagoalves@gmail.com
+	signingkey = 172E996C67412B09
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
@@ -32,5 +33,13 @@
 	enabled = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [branch]
 	autosetuprebase = always
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
+	template = ~/.gitmessage
+[init]
+	defaultBranch = main

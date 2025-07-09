@@ -129,7 +129,23 @@ export PATH="$HOME/.yarn/bin:$PATH"
 [[ -s $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
 [[ -s $HOME/.asdf/plugins/java/asdf-java-wrapper.bash ]] && . $HOME/.asdf/plugins/java/asdf-java-wrapper.bash
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # linuxbrew
 [[ -s $HOME/.linuxbrew/bin/brew ]] && eval $(/home/jivago/.linuxbrew/bin/brew shellenv)
+
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+[ -f ~/.bash_custom ] && source ~/.bash_custom
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+[[ -s /usr/local/bin/terraform ]] && complete -C /usr/local/bin/terraform terraform
+
+export KUBECONFIG=${HOME}/.kube/config
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
+
+source <(kubectl completion bash)

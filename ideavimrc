@@ -1,4 +1,10 @@
+source ~/.vimrc
+
 set clipboard+=unnamed
 set surround
 
-source ~/.vimrc
+map <Leader>a <Action>(GotoTest)
+map <Leader>t <Action>(ChooseRunConfiguration)
+
+Plug 'tpope/vim-commentary'
+

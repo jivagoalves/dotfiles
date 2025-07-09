@@ -214,6 +214,8 @@ Plug 'Shougo/vimproc.vim', {
 " Snippets
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
+
+let g:snipMate = { 'snippet_version' : 1 }
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
@@ -246,6 +248,12 @@ Plug 'idris-hackers/idris-vim'
 " command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Terraform
+Plug 'hashivim/vim-terraform'
+
+" Terraform
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
