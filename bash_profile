@@ -88,11 +88,11 @@ function explain {
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-[[ -s "$HOME/.rbenv/bin/rbenv" ]] && eval "$(rbenv init -)"
-if type "rbenv" > /dev/null; then
-  eval "$(rbenv init -)"
-fi
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# [[ -s "$HOME/.rbenv/bin/rbenv" ]] && eval "$(rbenv init -)"
+# if type "rbenv" > /dev/null; then
+#   eval "$(rbenv init -)"
+# fi
 
 # RVM-like for grails
 export SDKMAN_DIR="/home/jivago/.sdkman"
@@ -113,6 +113,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -128,6 +131,8 @@ export PATH="$HOME/.yarn/bin:$PATH"
 [[ -s $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
 [[ -s $HOME/.asdf/plugins/java/asdf-java-wrapper.bash ]] && . $HOME/.asdf/plugins/java/asdf-java-wrapper.bash
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # linuxbrew
 [[ -s $HOME/.linuxbrew/bin/brew ]] && eval $(/home/jivago/.linuxbrew/bin/brew shellenv)
@@ -149,3 +154,27 @@ export KUBECONFIG=${HOME}/.kube/config
 export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 
 source <(kubectl completion bash)
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/jivago.alves/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Rancher Desktop
+export DOCKER_HOST=unix://$HOME/.rd/docker.sock
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+
+export GPG_TTY=$TTY
+
+# aliases
+alias python="/opt/homebrew/bin/python3.14"
+alias pip="/opt/homebrew/bin/pip3.14"
+
+# Virtualenvwrapper settings:
+export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3.14
+export WORKON_HOME=$HOME/.virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV=/opt/homebrew/bin/virtualenv
+export VIRTUALENVWRAPPER_WORKON_CD=1
+export PROJECT_HOME=$HOME/code
+
+source /opt/homebrew/bin/virtualenvwrapper.sh
+export PATH="$HOME/.local/bin:$PATH"

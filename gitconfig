@@ -19,8 +19,13 @@
 	l = log --branches --decorate --oneline
 	b = branch
 	d = diff
-	adduntracked = !git add $(git ls-files -o --exclude-standard)
-	cleanbranches = !git branch --merged | grep -v "\\*" | grep -v master | grep -v main | xargs -n 1 git branch -d
+  adduntracked = !git add $(git ls-files -o --exclude-standard)
+  cleanbranches = !DEFAULT=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's@^origin/@@') && \
+    git fetch -p && \
+    git branch --merged origin/$DEFAULT \
+    | grep -v "\\*" \
+    | grep -v "$DEFAULT" \
+    | xargs -n 1 git branch -d
   pullall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=10 -I{} git -C {} pull --rebase
   stashall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=10 -I{} git -C {} stash
   statusall =  !ls --recursive --directory --color=never */.git | cut -d'/' -f1 | xargs --max-procs=1 -I{} sh -c 'echo {} && git -C {} status -s'
@@ -37,9 +42,13 @@
 [branch]
 	autosetuprebase = always
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
 [commit]
 	gpgsign = true
-	template = ~/.gitmessage
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -221,9 +221,9 @@ Plug 'honza/vim-snippets'
 
 " ctags
 " Plug 'craigemery/vim-autotag'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+" Plug 'majutsushi/tagbar'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -255,6 +255,10 @@ Plug 'hashivim/vim-terraform'
 " Terraform
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Kotlin
+Plug 'udalov/kotlin-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 " }}}
@@ -275,8 +279,8 @@ if $TMUX =~ "tmate"
   let g:solarized_termcolors=256
 endif
 
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
 
 " Use behavior of shell autocomplete functions for completing filenames
 set wildmode=longest,list

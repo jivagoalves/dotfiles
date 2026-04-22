@@ -60,7 +60,7 @@ UNDO_DIR=${HOME}/.vim/undo
 
 if [ ! -d "${UNDO_DIR}" ]; then
   echo "Creating directory ${UNDO_DIR}"
-  mkdir -p ${UNDO_DIR}
+  mkdir -p "${UNDO_DIR}"
 fi
 
 # stack
@@ -68,7 +68,7 @@ STACK_HOME_DIR=${HOME}/.stack
 
 if [ ! -d "${STACK_HOME_DIR}" ]; then
   echo "Creating directory ${STACK_HOME_DIR}"
-  mkdir -p ${STACK_HOME_DIR}
+  mkdir -p "${STACK_HOME_DIR}"
 fi
 
 symlink "stack/config.yaml" "$STACK_HOME_DIR/config.yaml"
@@ -78,7 +78,7 @@ LEIN_HOME_DIR=${HOME}/.lein
 
 if [ ! -d "${LEIN_HOME_DIR}" ]; then
   echo "Creating directory ${LEIN_HOME_DIR}"
-  mkdir -p ${LEIN_HOME_DIR}
+  mkdir -p "${LEIN_HOME_DIR}"
 fi
 
 symlink "lein/profiles.clj" "$LEIN_HOME_DIR/profiles.clj"
@@ -95,7 +95,7 @@ fi
 
 if [ ! -d "${VSCODE_SETTINGS_DIR}" ]; then
   echo "Creating directory ${VSCODE_SETTINGS_DIR}"
-  mkdir -p ${VSCODE_SETTINGS_DIR}
+  mkdir -p "${VSCODE_SETTINGS_DIR}"
 fi
 
 symlink "vscode/settings.json" "${VSCODE_SETTINGS_DIR}/settings.json"
@@ -106,7 +106,7 @@ ATOM_HOME_DIR=${HOME}/.atom
 
 if [ ! -d "${ATOM_HOME_DIR}" ]; then
   echo "Creating directory ${ATOM_HOME_DIR}"
-  mkdir -p ${ATOM_HOME_DIR}
+  mkdir -p "${ATOM_HOME_DIR}"
 fi
 
 symlink "atom/keymap.cson" "$ATOM_HOME_DIR/keymap.cson"

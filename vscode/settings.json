@@ -123,4 +123,6 @@
     ],
     "breadcrumbs.enabled": true,
     "files.autoSave": "onFocusChange",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "claudeCode.preferredLocation": "panel",
 }
